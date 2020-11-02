@@ -6,5 +6,6 @@ public class Main {
 	//Oi lads
         //alle elsker ananas pizza i smug
         //Hej venner
+        //HoN er bedre end LoL og Dota x^D
     }
 }
