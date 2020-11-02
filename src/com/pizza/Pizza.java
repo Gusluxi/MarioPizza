@@ -1,8 +1,18 @@
 package com.pizza;
 
+import java.util.Arrays;
+
 public class Pizza {
 
+
     private String[] ingredients;
+    private double price;
+
+
+    Pizza(String[] ingredients,double price) {
+        this.ingredients = ingredients;
+        this.price = price;
+    }
 
     public String[] getIngredients() {
         return ingredients;
@@ -12,12 +22,11 @@ public class Pizza {
         this.ingredients = ingredients;
     }
 
+
+    @Override
     public String toString() {
-        return "Denne pizza har følgende toppings: " + ingredients;
+        return "Pizza ingredients: " + Arrays.toString(ingredients) +
+                ", price = " + price;
     }
-
-
-
-
 
 }
