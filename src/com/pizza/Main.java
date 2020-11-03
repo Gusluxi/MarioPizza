@@ -20,7 +20,6 @@ public class Main {
 
 
 
-
     void run() throws IOException { // MENU
         boolean run = true;
         int choice = -1;
@@ -68,13 +67,19 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-        String[] Hawaii = {"Ost","Leverpostej"};
-        Pizza pitz = new Pizza(Hawaii,75);
-
-        System.out.println(pitz.toString());
-
+        Order order = new Order();
         readFile.findMenuItem();
-        readFile.printFileMethod(); //læser filen og printer den
+        //readFile.printFileMethod(); //læser filen og printer den
+        String pizza = "Hawwaiii";
+
+        System.out.println("\n\n");
+        order.displayCurrentOrder();
+        System.out.println("ya");
+        order.addPizzaToOrder(pizza);
+        order.displayCurrentOrder();
+
+
+
         //Main prg = new Main();
         //prg.run();
 
