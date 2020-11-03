@@ -12,7 +12,7 @@ public class Order {
     }
 
     Order(int orderID){
-
+        this.orderID=orderID;
     }
     public int getOrderID(){
         return orderID;

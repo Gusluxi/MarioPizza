@@ -66,7 +66,7 @@ public class justAFileClass {
     }
 
     int generateOrderID(){
-        int count = 0;
+        int count = 1;
         count++;
         return count;
     }
