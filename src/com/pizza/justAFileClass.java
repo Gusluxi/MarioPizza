@@ -13,7 +13,7 @@ public class justAFileClass {
         //Vi læser i teksten og beder den finde et input vi giver
         //Derefter printer vi linjen i konsol.. Det skal sendes til Display i fremtiden.
 
-        public void readFileClass() throws FileNotFoundException {
+        public void readFileMethod() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");

@@ -73,7 +73,7 @@ public class Main {
 
         System.out.println(pitz.toString());
 
-        readFile.readFileClass();
+        readFile.readFileMethod();
         //Main prg = new Main();
         //prg.run();
 
