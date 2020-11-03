@@ -18,7 +18,7 @@ public class justAFileClass {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            String inputPizzaString = inputClass.inputString();
+            String inputPizzaString = scan.nextLine();
 
             while (menuList.hasNextLine()) {
                 String lineFromText = menuList.nextLine();
@@ -34,17 +34,16 @@ public class justAFileClass {
             boolean test=true;
             while (test) {
                 order.addPizzaToOrder(addToOrder());
-
                 order.displayCurrentOrder();
-                System.out.println("tast 1 for at tilføje flere pizzaer");
 
                 //Find ud af, om der skal bestilles flere pizzaer:
+                System.out.println("tast 1 for at tilføje flere pizzaer");
                 int input = inputClass.inputInt();
                 if (input==0) {
                     test=false;
                 }
             }
-            System.out.println("wutwut");
+            order.displayCurrentOrder();
 
         }
 
