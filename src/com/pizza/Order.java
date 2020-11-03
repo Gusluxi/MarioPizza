@@ -5,8 +5,18 @@ import java.util.ArrayList;
 public class Order {
 
     private ArrayList<String> order = new ArrayList<String>();
+    private int orderID;
+    private String time;
 
     Order(){
+    }
+
+    public int getOrderID(){
+        return orderID;
+    }
+
+    public void setOrderID(int orderID){
+        this.orderID=orderID;
     }
 
     public ArrayList<String> getOrder() {

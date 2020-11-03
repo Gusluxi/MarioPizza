@@ -37,14 +37,20 @@ public class justAFileClass {
                 order.displayCurrentOrder();
 
                 //Find ud af, om der skal bestilles flere pizzaer:
-                System.out.println("tast 1 for at tilføje flere pizzaer");
+                System.out.println("tast 1 for at tilfQje flere pizzaer");
                 int input = inputClass.inputInt();
                 if (input==0) {
                     test=false;
                 }
             }
+            System.out.println("Hele ordren ser sAdan her ud: ");
             order.displayCurrentOrder();
+            order.setOrderID(generateOrderID());
 
+            //transferOrder(order);
+
+            //int var = order.getOrderID();
+            //System.out.printf("#%04d",var);
         }
 
         String addToOrder() throws FileNotFoundException {
@@ -59,6 +65,11 @@ public class justAFileClass {
         }
     }
 
+    int generateOrderID(){
+        int count = 0;
+        count++;
+        return count;
+    }
 
     }
 
