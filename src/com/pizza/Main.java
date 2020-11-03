@@ -67,22 +67,11 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-/*
-        Order order = new Order();
-        readFile.findMenuItem();
-        //readFile.printFileMethod(); //læser filen og printer den
-        String pizza = "Hawwaiii";
-
-        System.out.println("\n\n");
-        order.displayCurrentOrder();
-        System.out.println("ya");
-        order.ManualAddPizzaToOrder(pizza);
-        order.displayCurrentOrder();
-
- */
 
         justAFileClass test = new justAFileClass();
         test.startNewOrder();
+        test.testClass();
+
 
 
 

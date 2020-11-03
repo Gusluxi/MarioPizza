@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class justAFileClass {
     static Scanner scan = new Scanner(System.in);
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
+    static ActiveOrders mariosActiveOrders = new ActiveOrders();
 
-
-        //Vi læser i teksten og beder den finde et input vi giver
+    //Vi læser i teksten og beder den finde et input vi giver
         //Derefter printer vi linjen i konsol.. Det skal sendes til Display i fremtiden.
 
         public String findMenuItem() throws FileNotFoundException {
@@ -47,7 +47,7 @@ public class justAFileClass {
             order.displayCurrentOrder();
             order.setOrderID(generateOrderID());
 
-            //transferOrder(order);
+            mariosActiveOrders.addOrderToActiveOrders(order);
 
             //int var = order.getOrderID();
             //System.out.printf("#%04d",var);
@@ -69,6 +69,16 @@ public class justAFileClass {
         int count = 0;
         count++;
         return count;
+    }
+
+
+    void testClass(){
+        //TEST... INDSÆTTER ORDERS
+        Order order2 = new Order(generateOrderID());
+        Order order3 = new Order(generateOrderID());
+        mariosActiveOrders.addOrderToActiveOrders(order2);
+        mariosActiveOrders.addOrderToActiveOrders(order3);
+        System.out.println(mariosActiveOrders.toString());
     }
 
     }

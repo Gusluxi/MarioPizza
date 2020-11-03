@@ -11,6 +11,9 @@ public class Order {
     Order(){
     }
 
+    Order(int orderID){
+
+    }
     public int getOrderID(){
         return orderID;
     }
@@ -41,4 +44,13 @@ public class Order {
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "order=" + order +
+                ", orderID=" + orderID +
+                ", time='" + time + '\'' +
+                '}';
+    }
 }
