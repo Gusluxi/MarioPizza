@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 public class justAFileClass {
-
+    static Scanner scan = new Scanner(System.in);
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
 
 
@@ -33,7 +33,17 @@ public class justAFileClass {
 
         void startNewOrder() throws FileNotFoundException {
             Order order = new Order();
-            order.addPizzaToOrder(addToOrder());
+            int input = 1;
+            while (input == 1) {
+                order.addPizzaToOrder(addToOrder());
+                order.displayCurrentOrder();
+                System.out.println("tast 1 for at tilføje flere pizzaer");
+                input = inputClass.inputInt();
+                System.out.println("besked over scan nextline");
+                scan.nextLine(); //Scannerbuggen kommer vi udenom her.
+            }
+            System.out.println("wutwut");
+
         }
 
         String addToOrder() throws FileNotFoundException {
