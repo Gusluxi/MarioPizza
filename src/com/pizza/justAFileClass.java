@@ -11,9 +11,7 @@ public class justAFileClass {
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
 
-    //Vi læser i teksten og beder den finde et input vi giver
-        //Derefter printer vi linjen i konsol.. Det skal sendes til Display i fremtiden.
-
+        //Vi læser i teksten og beder den finde et input vi giver
         public String findMenuItem() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
@@ -29,6 +27,10 @@ public class justAFileClass {
         return "You fucked up bro";
         }
 
+        //Vi starter en ny ordre ved at oprette et order-objekt.
+        //Så beder vi Alfonso om at indtaste pizzaer
+        //Sidst giver vi ordren et ID og displayer den.
+        //ALLER SIDST SÆTTER VI DEN I AKTIVE ORDRE, SÅ MARIO KAN LÆSE DEM
         void startNewOrder() throws FileNotFoundException {
             Order order = new Order();
             boolean test=true;
@@ -49,8 +51,6 @@ public class justAFileClass {
 
             mariosActiveOrders.addOrderToActiveOrders(order);
 
-            //int var = order.getOrderID();
-            //System.out.printf("#%04d",var);
         }
 
         String addToOrder() throws FileNotFoundException {
@@ -78,8 +78,13 @@ public class justAFileClass {
         Order order3 = new Order(generateOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
-        System.out.println(mariosActiveOrders.toString());
+
+        System.out.println("\n Alle Aktive Ordre");
+        mariosActiveOrders.displayActiveOrders();
     }
 
-    }
+}
 
+
+//int var = order.getOrderID();
+//System.out.printf("#%04d",var);

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-
+    static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static justAFileClass readFile = new justAFileClass();
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static Scanner menuList;

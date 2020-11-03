@@ -24,8 +24,8 @@ public class ActiveOrders {
     }
 
     void displayActiveOrders(){
-        for (ActiveOrders:activeOrders){
-
+        for (int i = 0; i<activeOrders.size(); i++){
+            System.out.println(activeOrders.get(i));
         }
 
     }
