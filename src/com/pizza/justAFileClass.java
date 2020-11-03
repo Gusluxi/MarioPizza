@@ -14,7 +14,7 @@ public class justAFileClass {
         //Vi læser i teksten og beder den finde et input vi giver
         //Derefter printer vi linjen i konsol.. Det skal sendes til Display i fremtiden.
 
-        public void findMenuItem() throws FileNotFoundException {
+        public String findMenuItem() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
@@ -23,11 +23,21 @@ public class justAFileClass {
             while (menuList.hasNextLine()) {
                 String lineFromText = menuList.nextLine();
                 if (lineFromText.contains(input)) {
-                   System.out.println(lineFromText);
+                   return lineFromText;
                 }
             }
             //DEBUG
             System.out.println("length returns:" + menuTextFile.length());
+        return "You fucked up bro";
+        }
+
+        void startNewOrder() throws FileNotFoundException {
+            Order order = new Order();
+            order.addPizzaToOrder(addToOrder());
+        }
+
+        String addToOrder() throws FileNotFoundException {
+            return findMenuItem();
         }
 
     void printFileMethod() throws IOException {

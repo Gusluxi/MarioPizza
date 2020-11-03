@@ -67,6 +67,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+
         Order order = new Order();
         readFile.findMenuItem();
         //readFile.printFileMethod(); //læser filen og printer den
@@ -75,8 +76,12 @@ public class Main {
         System.out.println("\n\n");
         order.displayCurrentOrder();
         System.out.println("ya");
-        order.addPizzaToOrder(pizza);
+        order.ManualAddPizzaToOrder(pizza);
         order.displayCurrentOrder();
+
+        justAFileClass test = new justAFileClass();
+
+
 
 
 
