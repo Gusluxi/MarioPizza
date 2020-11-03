@@ -19,6 +19,13 @@ public class ActiveOrders {
     }
 //
 
+    void RemoveOrderFromList(){
+        activeOrders.remove(0);
+    }
+    void manualRemoveOrderFromList(int orderNumber){
+        activeOrders.remove(orderNumber);
+    }
+
     public void addOrderToActiveOrders(Order order) {
         this.activeOrders.add(order);
     }
