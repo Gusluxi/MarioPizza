@@ -17,6 +17,19 @@ public class inputClass {
         number = scan.nextInt();
         return number;
     }
+    public static int inputInt(int min, int max) {
+        int number;
+        do {
+            System.out.println("vælg mellem 1-14");
+            while (!scan.hasNextInt()) {
+                System.out.println("Fejl du har ikke skrevet et hel-tal mellem " + min + " og " + max);
+                scan.next();
+            }
+            number = scan.nextInt();
+        } while ((number >= max) || (number <=min));
+        return number;
+    }
+
     public static String inputString() {
         String word;
         while(!scan.hasNextLine()){

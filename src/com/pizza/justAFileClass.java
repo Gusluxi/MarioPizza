@@ -18,16 +18,19 @@ public class justAFileClass {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            String inputPizzaString = scan.nextLine() + ".";
+            int inputPizzaInt = inputClass.inputInt(0, 14);
+            String inputPizzaString = Integer.toString(inputPizzaInt);
+            inputPizzaString += ".";
 
             while (menuList.hasNextLine()) {
                 String lineFromText = menuList.nextLine();
                 if (lineFromText.contains(inputPizzaString)) {
-                   return lineFromText;
+                    return lineFromText;
                 }
             }
-        return "You fucked up bro";
+            return "Error - findMenuItem()";
         }
+
 
         //Vi starter en ny ordre ved at oprette et order-objekt.
         //Så beder vi Alfonso om at indtaste pizzaer
@@ -68,16 +71,9 @@ public class justAFileClass {
     }
 
     int generateOrderID(){
-        int count=1;
-
+        int count = 0;
+        count++;
         return count;
-    }
-
-    void printPizzaMenu() throws FileNotFoundException {
-        Scanner scan = new Scanner(menuTextFile);
-
-        while (scan.hasNextLine())
-            System.out.println(scan.nextLine());
     }
 
     void deleteActiveOrder(){
@@ -105,6 +101,12 @@ public class justAFileClass {
         mariosActiveOrders.displayActiveOrders();
     }
 
+    void printPizzaMenu() throws FileNotFoundException {
+        Scanner scan = new Scanner(menuTextFile);
+
+        while (scan.hasNextLine())
+            System.out.println(scan.nextLine());
+    }
 
 }
 
