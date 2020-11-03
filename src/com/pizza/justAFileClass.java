@@ -18,11 +18,11 @@ public class justAFileClass {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            String input = inputClass.inputString();
+            String inputPizzaString = inputClass.inputString();
 
             while (menuList.hasNextLine()) {
                 String lineFromText = menuList.nextLine();
-                if (lineFromText.contains(input)) {
+                if (lineFromText.contains(inputPizzaString)) {
                    return lineFromText;
                 }
             }
@@ -33,14 +33,17 @@ public class justAFileClass {
 
         void startNewOrder() throws FileNotFoundException {
             Order order = new Order();
-            int input = 1;
-            while (input == 1) {
+            boolean test=true;
+            while (test) {
                 order.addPizzaToOrder(addToOrder());
                 order.displayCurrentOrder();
                 System.out.println("tast 1 for at tilføje flere pizzaer");
-                input = inputClass.inputInt();
-                System.out.println("besked over scan nextline");
-                scan.nextLine(); //Scannerbuggen kommer vi udenom her.
+                int input = inputClass.inputInt();
+                if (input==0) {
+                    test=false;
+                }
+                //System.out.println("besked over scan nextline");
+                //scan.nextLine(); //Scannerbuggen kommer vi udenom her.
             }
             System.out.println("wutwut");
 
