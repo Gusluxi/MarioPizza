@@ -69,6 +69,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         justAFileClass test = new justAFileClass();
+        test.printPizzaMenu();
         test.startNewOrder();
         test.testClass();
 
