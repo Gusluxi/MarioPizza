@@ -73,7 +73,8 @@ public class Main {
 
         System.out.println(pitz.toString());
 
-        readFile.readFileMethod();
+        readFile.findMenuItem();
+        readFile.printFileMethod(); //læser filen og printer den
         //Main prg = new Main();
         //prg.run();
 

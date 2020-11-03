@@ -2,6 +2,7 @@ package com.pizza;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -13,7 +14,7 @@ public class justAFileClass {
         //Vi læser i teksten og beder den finde et input vi giver
         //Derefter printer vi linjen i konsol.. Det skal sendes til Display i fremtiden.
 
-        public void readFileMethod() throws FileNotFoundException {
+        public void findMenuItem() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
@@ -28,6 +29,14 @@ public class justAFileClass {
             //DEBUG
             System.out.println("length returns:" + menuTextFile.length());
         }
+
+    void printFileMethod() throws IOException {
+        Scanner menuList = new Scanner(menuTextFile); // HER SMIDER VI IOException op i main.
+        while (menuList.hasNextLine()) {
+            String nextLineInText = menuList.nextLine();
+            System.out.println(nextLineInText);
+        }
+    }
 
 
     }
