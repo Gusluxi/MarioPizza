@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-
+    static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static justAFileClass readFile = new justAFileClass();
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static Scanner menuList;
@@ -67,22 +67,11 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
-/*
-        Order order = new Order();
-        readFile.findMenuItem();
-        //readFile.printFileMethod(); //læser filen og printer den
-        String pizza = "Hawwaiii";
-
-        System.out.println("\n\n");
-        order.displayCurrentOrder();
-        System.out.println("ya");
-        order.ManualAddPizzaToOrder(pizza);
-        order.displayCurrentOrder();
-
- */
 
         justAFileClass test = new justAFileClass();
         test.startNewOrder();
+        test.testClass();
+
 
 
 
