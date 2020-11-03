@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
-    static justAFileClass readFile = new justAFileClass();
+    static PizzaMenuFile readFile = new PizzaMenuFile();
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static Scanner menuList;
     {
@@ -22,7 +22,7 @@ public class Main {
 
     void run() throws IOException { // MENU
         boolean run = true;
-        int choice = -1;
+        int choice;
         String headertext = "MENU:";
         String leadtext = "Please choose:\n";
         String[] menuitems = {"1. View user list", "2. Create new user", "3. Delete user",
@@ -68,7 +68,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        justAFileClass test = new justAFileClass();
+        PizzaMenuFile test = new PizzaMenuFile();
         //test.printPizzaMenu();
         test.startNewOrder();
         test.testClass();

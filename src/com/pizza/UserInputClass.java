@@ -2,13 +2,14 @@ package com.pizza;
 
 import java.util.Scanner;
 
-public class inputClass {
+public class UserInputClass {
 
     static Scanner scan = new Scanner(System.in); //Til inputInt() metode (LAV OGSÅ inputString
 
+    // InputInt validering om det er hel-tal
     public static int inputInt() {
-
         int number = 0;
+
         while (!scan.hasNextInt()) {
             System.out.println("Du skal skrive et hel-tal!");
             System.out.println("Indtast menu nummer: ");
@@ -17,6 +18,8 @@ public class inputClass {
         number = scan.nextInt();
         return number;
     }
+
+    //Validering om det er heltal samt et minimum og maximum tal.
     public static int inputInt(int min, int max) {
         int number;
         do {

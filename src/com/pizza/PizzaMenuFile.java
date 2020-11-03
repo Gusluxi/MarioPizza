@@ -7,18 +7,18 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 
-public class justAFileClass {
+public class PizzaMenuFile {
     static Scanner scan = new Scanner(System.in);
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src/com/pizza/PitzHistoric");
 
-        //Vi læser i teksten og beder den finde et input vi giver
-        public String findMenuItem() throws FileNotFoundException {
+        //Finder det valgte tal fra PizzaMenu.txt og sender en String med hele Pizzaen.
+        public String findAddToOrder() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            int inputPizzaInt = inputClass.inputInt(0, 14);
+            int inputPizzaInt = UserInputClass.inputInt(0, 14);
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
@@ -28,9 +28,15 @@ public class justAFileClass {
                     return lineFromText;
                 }
             }
-            return "Error - findMenuItem()";
+            return "Error - This program sucks";
         }
 
+    void printPizzaMenu() throws IOException {
+        Scanner menuList = new Scanner(menuTextFile); // HER SMIDER VI IOException op i main.
+
+        while (menuList.hasNextLine())
+            System.out.println(menuList.nextLine());
+    }
 
         //Vi starter en ny ordre ved at oprette et order-objekt.
         //Så beder vi Alfonso om at indtaste pizzaer
@@ -38,16 +44,16 @@ public class justAFileClass {
         //ALLER SIDST SÆTTER VI DEN I AKTIVE ORDRE, SÅ MARIO KAN LÆSE DEM
         void startNewOrder() throws FileNotFoundException {
             Order order = new Order();
-            boolean test=true;
-            while (test) {
-                order.addPizzaToOrder(addToOrder());
+            boolean start = true;
+            while (start) {
+                order.addPizzaToOrder(findAddToOrder());
                 order.displayCurrentOrder();
 
                 //Find ud af, om der skal bestilles flere pizzaer:
                 System.out.println("tast 1 for at tilfQje flere pizzaer");
-                int input = inputClass.inputInt();
+                int input = UserInputClass.inputInt();
                 if (input==0) {
-                    test=false;
+                    start = false;
                 }
             }
             System.out.println("Hele ordren ser sAdan her ud: ");
@@ -55,20 +61,8 @@ public class justAFileClass {
             order.setOrderID(generateOrderID());
 
             mariosActiveOrders.addOrderToActiveOrders(order);
-
         }
 
-        String addToOrder() throws FileNotFoundException {
-            return findMenuItem();
-        }
-
-    void printFileMethod() throws IOException {
-        Scanner menuList = new Scanner(menuTextFile); // HER SMIDER VI IOException op i main.
-        while (menuList.hasNextLine()) {
-            String nextLineInText = menuList.nextLine();
-            System.out.println(nextLineInText);
-        }
-    }
 
     int generateOrderID(){
         int count = 0;
@@ -100,14 +94,6 @@ public class justAFileClass {
         System.out.println("\n");
         mariosActiveOrders.displayActiveOrders();
     }
-
-    void printPizzaMenu() throws FileNotFoundException {
-        Scanner scan = new Scanner(menuTextFile);
-
-        while (scan.hasNextLine())
-            System.out.println(scan.nextLine());
-    }
-
 }
 
 
