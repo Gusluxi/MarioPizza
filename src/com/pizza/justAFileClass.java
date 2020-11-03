@@ -66,8 +66,8 @@ public class justAFileClass {
     }
 
     int generateOrderID(){
-        int count = 1;
-        count++;
+        int count=1;
+
         return count;
     }
 
@@ -78,6 +78,7 @@ public class justAFileClass {
         Order order3 = new Order(generateOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
+
 
         System.out.println("\n Alle Aktive Ordre");
         mariosActiveOrders.displayActiveOrders();
