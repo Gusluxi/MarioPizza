@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     static justAFileClass readFile = new justAFileClass();
-    static File menuTextFile = new File("C:\\Users\\M_Joh\\IdeaProjects\\Marios\\src\\com\\pizza\\PizzaMenu.txt");
+    static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static Scanner menuList;
     {
         try {
