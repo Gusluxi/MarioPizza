@@ -16,7 +16,7 @@ public class justAFileClass {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            String inputPizzaString = scan.nextLine();
+            String inputPizzaString = scan.nextLine() + ".";
 
             while (menuList.hasNextLine()) {
                 String lineFromText = menuList.nextLine();
@@ -81,6 +81,13 @@ public class justAFileClass {
 
         System.out.println("\n Alle Aktive Ordre");
         mariosActiveOrders.displayActiveOrders();
+    }
+
+    void printPizzaMenu() throws FileNotFoundException {
+        Scanner scan = new Scanner(menuTextFile);
+
+        while (scan.hasNextLine())
+            System.out.println(scan.nextLine());
     }
 
 }
