@@ -26,8 +26,6 @@ public class justAFileClass {
                    return lineFromText;
                 }
             }
-            //DEBUG
-            System.out.println("length returns:" + menuTextFile.length());
         return "You fucked up bro";
         }
 
@@ -36,14 +34,15 @@ public class justAFileClass {
             boolean test=true;
             while (test) {
                 order.addPizzaToOrder(addToOrder());
+
                 order.displayCurrentOrder();
                 System.out.println("tast 1 for at tilføje flere pizzaer");
+
+                //Find ud af, om der skal bestilles flere pizzaer:
                 int input = inputClass.inputInt();
                 if (input==0) {
                     test=false;
                 }
-                //System.out.println("besked over scan nextline");
-                //scan.nextLine(); //Scannerbuggen kommer vi udenom her.
             }
             System.out.println("wutwut");
 
