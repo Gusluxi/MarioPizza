@@ -60,19 +60,16 @@ public class EditOrderFile {
     void testClass() throws IOException {
         //TEST... INDSÆTTER ORDERS
 
-
-
-        //generateOrderID(); //Temp løsning til at generate et nyt OrderID for hvert object (kunne måske bruges i et loop)
         Order order2 = new Order(testMisc.newOrderID());
-        //generateOrderID();
         Order order3 = new Order(testMisc.newOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
-
         System.out.println("\n Alle Aktive Ordre");
+
         mariosActiveOrders.displayActiveOrders();
         confirmOrderSold(order2);
         deleteActiveOrder();
+
         confirmOrderSold(order3);
         System.out.println("\n");
         mariosActiveOrders.displayActiveOrders();

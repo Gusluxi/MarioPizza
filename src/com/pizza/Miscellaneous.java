@@ -10,13 +10,22 @@ public class Miscellaneous {
     private final String FILENAME = "src\\com\\pizza\\OrderID.txt";
     private int currentOrderID;
 
+
+    public int getCurrentOrderID() {
+        return currentOrderID;
+    }
+
+    public void setCurrentOrderID(int currentOrderID) {
+        this.currentOrderID = currentOrderID;
+    }
+
     int readOrderID() {
 
         try {
-            Scanner iDFileScan = new Scanner(new File("src\\com\\pizza\\OrderID.txt"));
+            Scanner iDFileScan = new Scanner(new File(FILENAME));
             String stringID = iDFileScan.nextLine();
             int intID = Integer.parseInt(stringID);
-            this.currentOrderID = intID;
+            setCurrentOrderID(intID);
             return intID;
 
         } catch (IOException e) {
@@ -24,18 +33,19 @@ public class Miscellaneous {
         }
         return -1;
     }
-    void generateOrderID() throws FileNotFoundException {
+    int generateOrderID() throws FileNotFoundException {
         int countID = readOrderID();
         countID ++;
-        PrintStream writeToFile = new PrintStream("src\\com\\pizza\\OrderID.txt");
+        PrintStream writeToFile = new PrintStream(FILENAME);
         writeToFile.printf("%04d",countID);
-        this.currentOrderID = countID;
+        setCurrentOrderID(countID);
+        return countID;
     }
 
     int newOrderID() throws FileNotFoundException {
-        generateOrderID();
-        int iD = this.currentOrderID;
-        return iD;
+        int ID = generateOrderID();
+
+        return ID;
 
     }
 }
