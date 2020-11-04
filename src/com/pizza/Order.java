@@ -41,24 +41,24 @@ public class Order {
     }
 
     void displayCurrentOrder(){
-        for (int i=0; i<order.size() ; i++){
+        for (int i=0; i < order.size(); i++){
             System.out.println(order.get(i));
         }
     }
 
 
+    public String findPizzaNumber() {
+        String pizzaNumber = "";
+        for (int i = 0; i < order.size(); i++) {
+            pizzaNumber += " " + getOrder().get(i).substring(0,3);
 
-
-
-
-
-
-
-
-
+        }
+        return pizzaNumber;
+    }
 
     @Override
     public String toString() {
-        return "Order{" + "order=" + order + ", orderID=" + orderID + ", time='" + time + '\'' + '}';
+        String pizzaNumber = findPizzaNumber();
+        return "Order{" + "order = " + pizzaNumber + ", orderID = " + orderID + ", time = '" + time + '\'' + '}';
     }
 }

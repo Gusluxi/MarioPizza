@@ -31,12 +31,18 @@ public class ActiveOrders {
     //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
     void displayActiveOrders(){
-        for (int i = 0; i<activeOrders.size(); i++){
+        for (int i = 0; i < activeOrders.size(); i++){
             System.out.println(activeOrders.get(i));
+
         }
 
     }
-
+/*
+    void displayActiveOrdersTest() {
+        for (Order activeOrders : )
+            for ()
+    }
+*/
 }
 
 

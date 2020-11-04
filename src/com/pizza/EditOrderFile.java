@@ -31,7 +31,7 @@ public class EditOrderFile {
         order.setOrderID(testMisc.newOrderID());
 
         mariosActiveOrders.addOrderToActiveOrders(order);
-//OBS: addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
+//OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
     }
 
 /*
