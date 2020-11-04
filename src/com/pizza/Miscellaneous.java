@@ -33,9 +33,8 @@ public class Miscellaneous {
     }
 
     int newOrderID() throws FileNotFoundException {
-            generateOrderID();
-            int iD = this.currentOrderID;
-        System.out.printf("%04d", iD);
+        generateOrderID();
+        int iD = this.currentOrderID;
         return iD;
 
     }

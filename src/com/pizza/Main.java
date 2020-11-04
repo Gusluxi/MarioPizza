@@ -73,7 +73,7 @@ public class Main {
         PizzaMenuFile.printPizzaMenu();
         testEO.startNewOrder();
         testEO.testClass();
-        testMisc.newOrderID();
+
 
 
         //Main prg = new Main();
