@@ -6,8 +6,9 @@ import java.time.format.DateTimeFormatter;
 public class TimeClass {
     static String currentRealTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
 
-    void displayTime(){
+    String displayTime(){
         System.out.println(currentRealTime);
+        return currentRealTime;
     }
 
     void displayInputTime(String time){

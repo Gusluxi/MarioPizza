@@ -17,6 +17,7 @@ public class EditOrderFile {
 
 
 
+
     //Vi starter en ny ordre ved at oprette et order-objekt.
     //Så beder vi Alfonso om at indtaste pizzaer
     //Sidst giver vi ordren et ID og displayer den.
@@ -45,7 +46,7 @@ public class EditOrderFile {
         int timeMinSat = UserInput.inputInt();
 
         order.setTime(timeClass.setTimeOfTheDay(timeHourSat, timeMinSat));
-
+        System.out.println(order.getTime() + " TEST FOR AT TID BLIVER SAT. JAJAJAJJAA");
         mariosActiveOrders.addOrderToActiveOrders(order);
 //OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
     }
@@ -68,13 +69,15 @@ public class EditOrderFile {
         //timeClass.displayTime();
         //timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
 
-        System.out.println(order.findTimeInOrder());
 
-        Order order2 = new Order(testMisc.newOrderID());
-        Order order3 = new Order(testMisc.newOrderID());
+
+        Order order2 = new Order(testMisc.newOrderID(),timeClass.displayTime());
+        Order order3 = new Order(testMisc.newOrderID(),timeClass.displayTime());
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
+
         System.out.println("\n Alle Aktive Ordre");
+
 
         mariosActiveOrders.displayActiveOrders();
         confirmOrderSold(order2);

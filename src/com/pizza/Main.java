@@ -72,6 +72,7 @@ public class Main {
         Miscellaneous testMisc = new Miscellaneous();
         PizzaMenuFile.printPizzaMenu();
         testEO.startNewOrder();
+        System.out.println("Du har lavet en ny ordre.. Nu kommer testclassen: \n");
         testEO.testClass();
 
 

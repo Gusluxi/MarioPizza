@@ -10,19 +10,21 @@ public class Order {
 
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;
+    private String time;
 
     public String getTime() {
         return time;
     }
-
-    private String time;
 
     Order(){
     }
 
     Order(int orderID){
         this.orderID=orderID;
-
+    }
+    Order(int orderID, String time){
+        this.orderID=orderID;
+        this.time=time;
     }
 
     public int getOrderID(){
@@ -45,10 +47,6 @@ public class Order {
         order.add(pizzaName);
     }
 
-    void ManualAddPizzaToOrder(String pizzaName){
-        order.add(pizzaName);
-    }
-
     void displayCurrentOrder(){
         for (int i=0; i < order.size(); i++){
             System.out.println(order.get(i));
@@ -63,16 +61,6 @@ public class Order {
 
         }
         return pizzaNumber;
-    }
-
-    public String findTimeInOrder(){
-        String findTime = "";
-
-        for (int i = 0; i<order.size();i++){
-            findTime = getOrder().get(i).substring(order.toArray().length - 7, order.indexOf(i));
-
-        }
-    return findTime;
     }
 
     @Override
