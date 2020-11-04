@@ -32,10 +32,11 @@ public class Miscellaneous {
         this.currentOrderID = countID;
     }
 
-    void newOrderID() throws FileNotFoundException {
+    int newOrderID() throws FileNotFoundException {
             generateOrderID();
             int iD = this.currentOrderID;
         System.out.printf("%04d", iD);
+        return iD;
 
     }
 }

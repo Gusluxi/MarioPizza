@@ -6,6 +6,7 @@ public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
     static Order order = new Order();
+    static Miscellaneous testMisc = new Miscellaneous();
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
     //Så beder vi Alfonso om at indtaste pizzaer
@@ -27,14 +28,13 @@ public class EditOrderFile {
         }
         System.out.println("Hele ordren: ");
         order.displayCurrentOrder();
-        generateOrderID();
-        order.getOrderID();
+        order.setOrderID(testMisc.newOrderID());
 
         mariosActiveOrders.addOrderToActiveOrders(order);
 //OBS: addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
     }
 
-
+/*
     void generateOrderID(){
         int countID = order.getOrderID();
         if (countID != 0) {
@@ -42,6 +42,8 @@ public class EditOrderFile {
             order.setOrderID(countID);
         } else order.setOrderID(3);
     }
+
+ */
 
     void deleteActiveOrder(){
         mariosActiveOrders.manualRemoveOrderFromList(2);
@@ -54,18 +56,16 @@ public class EditOrderFile {
         fw.close();
     }
 
-    /*void confirmOrderSold(Object order) throws FileNotFoundException {
-        PrintStream writeToFile = new PrintStream(PitzHistoric); //throw filenotfound
-        writeToFile.println(order.toString());
-    }*/
-
 
     void testClass() throws IOException {
         //TEST... INDSÆTTER ORDERS
-        generateOrderID(); //Temp løsning til at generate et nyt OrderID for hvert object (kunne måske bruges i et loop)
-        Order order2 = new Order(order.getOrderID());
-        generateOrderID();
-        Order order3 = new Order(order.getOrderID());
+
+
+
+        //generateOrderID(); //Temp løsning til at generate et nyt OrderID for hvert object (kunne måske bruges i et loop)
+        Order order2 = new Order(testMisc.newOrderID());
+        //generateOrderID();
+        Order order3 = new Order(testMisc.newOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
 
