@@ -20,16 +20,16 @@ public class UserInput {
     }
 
     //Validering om det er heltal samt et minimum og maximum tal.
-    public static int inputInt(int min, int max) {
+    public static int inputInt(int min, int max, String msg) {
         int number;
         do {
-            System.out.println("vælg mellem 1-14");
+            System.out.println(msg);
             while (!scan.hasNextInt()) {
                 System.out.println("Fejl du har ikke skrevet et hel-tal mellem " + min + " og " + max);
                 scan.next();
             }
             number = scan.nextInt();
-        } while ((number >= max) || (number <=min));
+        } while ((number <= max) == false || (number >= min) == false);
         return number;
     }
     public static int inputInt(String msgOutput) {
