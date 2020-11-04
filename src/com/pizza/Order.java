@@ -10,6 +10,11 @@ public class Order {
 
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;
+
+    public String getTime() {
+        return time;
+    }
+
     private String time;
 
     Order(){
@@ -58,6 +63,16 @@ public class Order {
 
         }
         return pizzaNumber;
+    }
+
+    public String findTimeInOrder(){
+        String findTime = "";
+
+        for (int i = 0; i<order.size();i++){
+            findTime = getOrder().get(i).substring(order.toArray().length - 7, order.indexOf(i));
+
+        }
+    return findTime;
     }
 
     @Override

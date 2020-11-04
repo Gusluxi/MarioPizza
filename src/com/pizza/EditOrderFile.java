@@ -65,8 +65,10 @@ public class EditOrderFile {
     void testClass() throws IOException {
         // Vores test class, hvor vi afprøver alt...
         TimeClass timeClass = new TimeClass();
-        timeClass.displayTime();
-        timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
+        //timeClass.displayTime();
+        //timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
+
+        System.out.println(order.findTimeInOrder());
 
         Order order2 = new Order(testMisc.newOrderID());
         Order order3 = new Order(testMisc.newOrderID());

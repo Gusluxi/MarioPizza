@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class UserInput {
 
     static Scanner scan = new Scanner(System.in); //Til inputInt() metode (LAV OGSÅ inputString
+
     //Overloaded inputInt()
-    // InputInt validering om det er hel-tal
+    //InputInt validering om det er hel-tal
     public static int inputInt() {
         int number;
 
