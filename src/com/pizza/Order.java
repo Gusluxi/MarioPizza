@@ -13,6 +13,7 @@ public class Order {
 
     Order(int orderID){
         this.orderID=orderID;
+
     }
 
     public int getOrderID(){
@@ -45,13 +46,8 @@ public class Order {
         }
     }
 
-
     @Override
     public String toString() {
-        return "Order{" +
-                "order=" + order +
-                ", orderID=" + orderID +
-                ", time='" + time + '\'' +
-                '}';
+        return "Order{" + "order=" + order + ", orderID=" + orderID + ", time='" + time + '\'' + '}';
     }
 }

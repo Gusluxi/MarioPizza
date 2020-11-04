@@ -22,13 +22,13 @@ public class ActiveOrders {
     void RemoveOrderFromList(){
         activeOrders.remove(0);
     }
+
     void manualRemoveOrderFromList(int orderNumber){
         activeOrders.remove(orderNumber);
     }
 
-    public void addOrderToActiveOrders(Order order) {
-        this.activeOrders.add(order);
-    }
+    public void addOrderToActiveOrders(Order order) { this.activeOrders.add(order); }
+    //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
     void displayActiveOrders(){
         for (int i = 0; i<activeOrders.size(); i++){
@@ -38,12 +38,6 @@ public class ActiveOrders {
     }
 
 }
-
-
-
-
-
-
 
 
    /* public String toString(){

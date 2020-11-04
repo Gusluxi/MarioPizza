@@ -19,48 +19,47 @@ public class Main {
     }
 
 
-
     void run() throws IOException { // MENU
         boolean run = true;
         int choice;
-        String headertext = "MENU:";
-        String leadtext = "Please choose:\n";
-        String[] menuitems = {"1. View user list", "2. Create new user", "3. Delete user",
-                "4. Savefile?","5. Readfile", "9 to quit"};
+        String headertext = "Order Menu:";
+        String leadtext = "Vaelg en mulighed: ";
+        String[] menuitems = {"1. Ny order", "2. Rediger order", "3. Delete order",
+                "4. Save order","5. Se aktive ordrer", "9. Exit program"};
 
 
         while (run){
             Menu menu = new Menu(headertext,leadtext,menuitems);
             menu.printMenu();
-            choice = menu.readChoice();
+            choice = UserInput.inputInt(leadtext);
 
             switch (choice){
                 case 1:
-                    System.out.println("You chose 1. View user list");
+                    System.out.println("Ny Order");
 
                     break;
                 case 2:
-                    System.out.println("You chose 2. Create new user");
+                    System.out.println("Edit order");
 
                     break;
                 case 3:
-                    System.out.println("You chose 3. Delete user");
+                    System.out.println("Delete order");
 
                     break;
                 case 4:
-                    System.out.println("You chose 4. Save file");
+                    System.out.println("Save order");
 
                     break;
                 case 5:
-                    System.out.println("You chose 5. Read file");
+                    System.out.println("Se aktive orders");
 
                     break;
                 case 9:
-                    System.out.println("Quitting program");
+                    System.out.println("Exiting program");
                     run = false;
                     break;
                 default:
-                    System.out.println("Invalid number");
+                    System.out.println("Forkert valg: ");
             }
         }
     }
@@ -68,13 +67,11 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        PizzaMenuFile test = new PizzaMenuFile();
-        //test.printPizzaMenu();
-        test.startNewOrder();
-        test.testClass();
 
-
-
+        EditOrderFile testEO = new EditOrderFile();
+        PizzaMenuFile.printPizzaMenu();
+        testEO.startNewOrder();
+        testEO.testClass();
 
 
 

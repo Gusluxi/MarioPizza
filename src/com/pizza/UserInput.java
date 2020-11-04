@@ -2,13 +2,13 @@ package com.pizza;
 
 import java.util.Scanner;
 
-public class UserInputClass {
+public class UserInput {
 
     static Scanner scan = new Scanner(System.in); //Til inputInt() metode (LAV OGSÅ inputString
-
+    //Overloaded inputInt()
     // InputInt validering om det er hel-tal
     public static int inputInt() {
-        int number = 0;
+        int number;
 
         while (!scan.hasNextInt()) {
             System.out.println("Du skal skrive et hel-tal!");
@@ -32,13 +32,24 @@ public class UserInputClass {
         } while ((number >= max) || (number <=min));
         return number;
     }
+    public static int inputInt(String msgOutput) {
+        int number;
+        System.out.println(msgOutput);
+        while (!scan.hasNextInt()) {
+            System.out.println("Du skal skrive et hel-tal!");
+            System.out.println(msgOutput);
+            scan.next();
+        }
+        number = scan.nextInt();
+        return number;
+    }
 
     public static String inputString() {
         String word;
         while(!scan.hasNextLine()){
             System.out.println("Du skal skrive en String!");
-            System.out.println("Skriv string:");
-            scan.nextLine();
+            System.out.println("Skriv string: ");
+            scan.next();
         }
         word = scan.nextLine();
         return word;

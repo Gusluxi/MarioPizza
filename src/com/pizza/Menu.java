@@ -1,7 +1,5 @@
 package com.pizza;
 
-import java.util.Scanner;
-
 public class Menu {
     private String menuHeader;
     private String leadText;
@@ -21,22 +19,4 @@ public class Menu {
             printString += menuItems[i] + "\n";
         System.out.println("\n" + printString);
     }
-
-    public int readChoice() {
-        Scanner scanner = new Scanner(System.in);
-        boolean validChoice = false;
-        int choice = -1;
-
-        while (! validChoice) {
-            System.out.print(leadText);
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-                validChoice = true;
-            } else {
-                scanner.nextLine();
-            }
-        }
-        return choice;
-    }
-
 }
