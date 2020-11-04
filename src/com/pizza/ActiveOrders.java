@@ -9,15 +9,16 @@ public class ActiveOrders {
 
     ActiveOrders(){
     }
-//
-    public ArrayList<Order> getActiveOrders() {
+
+        //Get og set
+         public ArrayList<Order> getActiveOrders() {
         return activeOrders;
     }
 
-    public void setActiveOrders(ArrayList<Order> activeOrders) {
+         public void setActiveOrders(ArrayList<Order> activeOrders) {
         this.activeOrders = activeOrders;
     }
-//
+        //
 
     void RemoveOrderFromList(){
         activeOrders.remove(0);

@@ -1,8 +1,12 @@
 package com.pizza;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Order {
+
+    static LocalTime localTime = LocalTime.now();
 
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;

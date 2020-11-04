@@ -1,12 +1,17 @@
 package com.pizza;
 
 import java.io.*;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
     static Order order = new Order();
     static Miscellaneous testMisc = new Miscellaneous();
+
+
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
     //Så beder vi Alfonso om at indtaste pizzaer
@@ -34,17 +39,6 @@ public class EditOrderFile {
 //OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
     }
 
-/*
-    void generateOrderID(){
-        int countID = order.getOrderID();
-        if (countID != 0) {
-            countID++;
-            order.setOrderID(countID);
-        } else order.setOrderID(3);
-    }
-
- */
-
     void deleteActiveOrder(){
         mariosActiveOrders.manualRemoveOrderFromList(2);
     }
@@ -59,7 +53,8 @@ public class EditOrderFile {
 
     void testClass() throws IOException {
         //TEST... INDSÆTTER ORDERS
-
+        TimeClass timeClass = new TimeClass();
+        timeClass.displayTime();
         Order order2 = new Order(testMisc.newOrderID());
         Order order3 = new Order(testMisc.newOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
