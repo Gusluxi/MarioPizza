@@ -40,7 +40,7 @@ public class EditOrderFile {
         if (countID != 0) {
             countID++;
             order.setOrderID(countID);
-        } else order.setOrderID(1);
+        } else order.setOrderID(3);
     }
 
     void deleteActiveOrder(){

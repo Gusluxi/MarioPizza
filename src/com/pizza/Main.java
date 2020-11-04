@@ -69,10 +69,11 @@ public class Main {
 
 
         EditOrderFile testEO = new EditOrderFile();
+        Miscellaneous testMisc = new Miscellaneous();
         PizzaMenuFile.printPizzaMenu();
         testEO.startNewOrder();
         testEO.testClass();
-
+        testMisc.newOrderID();
 
 
         //Main prg = new Main();
