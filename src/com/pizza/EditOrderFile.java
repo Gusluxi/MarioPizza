@@ -52,9 +52,11 @@ public class EditOrderFile {
 
 
     void testClass() throws IOException {
-        //TEST... INDSÆTTER ORDERS
+        // Vores test class, hvor vi afprøver alt...
         TimeClass timeClass = new TimeClass();
         timeClass.displayTime();
+        timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
+
         Order order2 = new Order(testMisc.newOrderID());
         Order order3 = new Order(testMisc.newOrderID());
         mariosActiveOrders.addOrderToActiveOrders(order2);
