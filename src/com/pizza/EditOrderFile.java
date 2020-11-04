@@ -1,15 +1,19 @@
 package com.pizza;
 
+import jdk.internal.util.xml.impl.Input;
+
 import java.io.*;
 import java.sql.Time;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
     static Order order = new Order();
     static Miscellaneous testMisc = new Miscellaneous();
+    static Scanner scan = new Scanner(System.in);
 
 
 
@@ -19,6 +23,7 @@ public class EditOrderFile {
     //ALLER SIDST SÆTTER VI DEN I AKTIVE ORDRE, SÅ MARIO KAN LÆSE DEM
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
+        TimeClass timeClass = new TimeClass();
         boolean start = true;
         while (start) {
             order.addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
@@ -34,6 +39,12 @@ public class EditOrderFile {
         System.out.println("Hele ordren: ");
         order.displayCurrentOrder();
         order.setOrderID(testMisc.newOrderID());
+
+        System.out.println("Enter time of completion");
+        int timeHourSat = UserInput.inputInt();
+        int timeMinSat = UserInput.inputInt();
+
+        order.setTime(timeClass.setTimeOfTheDay(timeHourSat, timeMinSat));
 
         mariosActiveOrders.addOrderToActiveOrders(order);
 //OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.

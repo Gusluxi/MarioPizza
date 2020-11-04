@@ -65,4 +65,8 @@ public class Order {
         String pizzaNumber = findPizzaNumber();
         return "Order{" + "order = " + pizzaNumber + ", orderID = " + orderID + ", time = '" + time + '\'' + '}';
     }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 }
