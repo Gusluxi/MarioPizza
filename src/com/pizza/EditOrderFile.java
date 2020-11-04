@@ -1,12 +1,10 @@
 package com.pizza;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.*;
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
-    static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric");
+    static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
     static Order order = new Order();
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
@@ -49,13 +47,20 @@ public class EditOrderFile {
         mariosActiveOrders.manualRemoveOrderFromList(2);
     }
 
-    void confirmOrderSold(Object order) throws FileNotFoundException {
-        PrintStream writeToFile = new PrintStream(PitzHistoric); //throw filenotfound
-        writeToFile.println(order.toString());
+    public static void confirmOrderSold(Object order) throws IOException {
+        FileWriter fw = new FileWriter(PitzHistoric,true);
+        fw.write(order.toString());
+        fw.write("\n");
+        fw.close();
     }
 
+    /*void confirmOrderSold(Object order) throws FileNotFoundException {
+        PrintStream writeToFile = new PrintStream(PitzHistoric); //throw filenotfound
+        writeToFile.println(order.toString());
+    }*/
 
-    void testClass() throws FileNotFoundException {
+
+    void testClass() throws IOException {
         //TEST... INDSÆTTER ORDERS
         generateOrderID(); //Temp løsning til at generate et nyt OrderID for hvert object (kunne måske bruges i et loop)
         Order order2 = new Order(order.getOrderID());
@@ -66,8 +71,9 @@ public class EditOrderFile {
 
         System.out.println("\n Alle Aktive Ordre");
         mariosActiveOrders.displayActiveOrders();
-        confirmOrderSold(order3);
+        confirmOrderSold(order2);
         deleteActiveOrder();
+        confirmOrderSold(order3);
         System.out.println("\n");
         mariosActiveOrders.displayActiveOrders();
     }
