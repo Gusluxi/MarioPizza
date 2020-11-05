@@ -3,14 +3,34 @@ package com.pizza;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Order {
+public class Order implements Comparable<Order> {
 
     static LocalTime localTime = LocalTime.now();
 
+    private String time;
+    private int timeInt;
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;
-    private String time;
+
+    public int getTimeInt(){
+        return this.timeInt;
+    }
+    public void setTimeInt(int timeInt){
+        this.timeInt=timeInt;
+    }
+
+    public static void setLocalTime(LocalTime localTime) {
+        Order.localTime = localTime;
+    }
+
+    public int convertTimetoTimeInt(Order order){
+        String time = order.getTime();
+        String timeFixed = time.substring(0,2) + time.substring(3,5);
+        int timeInt = Integer.parseInt(timeFixed);
+        return timeInt;
+    }
 
     public String getTime() {
         return time;
@@ -22,7 +42,8 @@ public class Order {
     Order(int orderID){
         this.orderID=orderID;
     }
-    Order(int orderID, String time){
+    Order(int orderID, String time,int timeInt){
+        this.timeInt=timeInt;
         this.orderID=orderID;
         this.time=time;
     }
@@ -66,10 +87,29 @@ public class Order {
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
-        return "Order{" + "order = " + pizzaNumber + ", orderID = " + orderID + ", time = '" + time + '\'' + '}';
+        return timeInt + "<------- Order{" + "order = " + pizzaNumber + ", orderID = " + orderID + ", time = '" + time + '\'' + '}';
     }
 
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public int compareTo(Order o) {
+        int compare = ((Order)o).getTimeInt();
+        return this.timeInt-compare;
+    }
+
+
+
+
+/*
+    public String compareTo(Order compareOrder) {
+        String compareTime=((Order)compareOrder).getTime();
+        return ;
+    }
+
+ */
+
+
 }

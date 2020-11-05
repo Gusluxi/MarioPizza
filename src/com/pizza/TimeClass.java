@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class TimeClass {
-    static String currentRealTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
+    static String currentRealTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HHmm"));
 
     String displayTime(){
         System.out.println(currentRealTime);

@@ -67,7 +67,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         EditOrderFile testEO = new EditOrderFile();
         Miscellaneous testMisc = new Miscellaneous();
         PizzaMenuFile.printPizzaMenu();

@@ -22,6 +22,7 @@ public class EditOrderFile {
     //Så beder vi Alfonso om at indtaste pizzaer
     //Sidst giver vi ordren et ID og displayer den.
     //ALLER SIDST SÆTTER VI DEN I AKTIVE ORDRE, SÅ MARIO KAN LÆSE DEM
+
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
         TimeClass timeClass = new TimeClass();
@@ -46,6 +47,8 @@ public class EditOrderFile {
         int timeMinSat = UserInput.inputInt();
 
         order.setTime(timeClass.setTimeOfTheDay(timeHourSat, timeMinSat));
+        order.setTimeInt(order.convertTimetoTimeInt(order));
+        System.out.println("test" + order.getTimeInt());
         System.out.println(order.getTime() + " TEST FOR AT TID BLIVER SAT. JAJAJAJJAA");
         mariosActiveOrders.addOrderToActiveOrders(order);
 //OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
@@ -69,22 +72,29 @@ public class EditOrderFile {
         //timeClass.displayTime();
         //timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
 
-
-
-        Order order2 = new Order(testMisc.newOrderID(),timeClass.displayTime());
-        Order order3 = new Order(testMisc.newOrderID(),timeClass.displayTime());
+        Order order1 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
+        Order order4 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
+        Order order2 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,30),930);
+        Order order3 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(12,15),1215);
+        mariosActiveOrders.addOrderToActiveOrders(order1);
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
+        mariosActiveOrders.addOrderToActiveOrders(order4);
 
         System.out.println("\n Alle Aktive Ordre");
 
+        order2.convertTimetoTimeInt(order2);
+        order2.getTimeInt();
+
 
         mariosActiveOrders.displayActiveOrders();
-        confirmOrderSold(order2);
-        deleteActiveOrder();
+        //confirmOrderSold(order2);
+        //deleteActiveOrder();
 
-        confirmOrderSold(order3);
+        //confirmOrderSold(order3);
         System.out.println("\n");
-        mariosActiveOrders.displayActiveOrders();
+        //mariosActiveOrders.displayActiveOrders();
+        mariosActiveOrders.sortByAttribute();
+
     }
 }
