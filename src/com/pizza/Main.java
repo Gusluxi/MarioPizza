@@ -39,7 +39,7 @@ public class Main {
         String headertext = "Order Menu:";
         String leadtext = "Vaelg en mulighed: ";
         String[] menuitems = {"1. Add new order", "2. Display active orders", "3. Delete order",
-                "4. Confirm order sold","??", "9. Exit program"};
+                "4. Confirm order sold","Yayeet", "9. Exit program"};
 
 
         while (run){
@@ -59,7 +59,8 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Delete order");
-                    mariosActiveOrders.removeOrderFromList(UserInput.inputInt("Input index number of Order"));
+                    mariosActiveOrders.deleteDisplayActiveOrders();
+                    mariosActiveOrders.removeOrderFromList(UserInput.inputInt("Input index number of Order")-1);
 
                     break;
                 case 4:
@@ -68,11 +69,12 @@ public class Main {
                     int index = (UserInput.inputInt("Input index number of order") -1); //giver den første, når han skriver 1. (istedet for 0)
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
                     mariosActiveOrders.removeOrderFromList(index);
+
                     System.out.println("Orders left: ");
                     mariosActiveOrders.displayActiveOrders();
                     break;
                 case 5:
-                    System.out.println("Se aktive orders");
+                    System.out.println("yAyEEt");
 
                     break;
                 case 9:
@@ -80,7 +82,7 @@ public class Main {
                     run = false;
                     break;
                 default:
-                    System.out.println("Forkert valg: ");
+                    System.out.println("Choose something else :) ");
             }
         }
     }

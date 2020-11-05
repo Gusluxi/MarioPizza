@@ -13,9 +13,7 @@ public class Order implements Comparable<Order> {
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;
 
-    Order(){
-    }
-
+    Order(){}
     Order(int orderID){
         this.orderID=orderID;
     }
@@ -87,6 +85,8 @@ public class Order implements Comparable<Order> {
         String pizzaNumber = findPizzaNumber();
         return timeInt + "<---Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}';
     }
+
+
 
     @Override
     public int compareTo(Order order) {

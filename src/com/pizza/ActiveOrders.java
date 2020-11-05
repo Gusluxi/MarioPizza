@@ -38,6 +38,15 @@ public class ActiveOrders {
 
     }
 
+    void deleteDisplayActiveOrders(){
+        sortByAttribute();
+        for (int i = 0; i < activeOrders.size(); i++) {
+            String clas = Integer.toString(i+1);
+            System.out.println("#" + clas + "  " + activeOrders.get(i));
+
+        }
+    }
+
     void sortByAttribute(){
         Collections.sort(activeOrders);
     }

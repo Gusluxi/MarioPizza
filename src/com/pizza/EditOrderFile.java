@@ -35,23 +35,18 @@ public class EditOrderFile {
                 start = false;
             }
         }
-        System.out.println("Hele ordren: ");
+        System.out.println("The complete order: ");
         order.displayCurrentOrder();
+
+        //GENERATE ORDER ID
         order.setOrderID(testMisc.newOrderID());
 
-        System.out.println("Enter time of completion. Start with hours:");
-        int timeHourSat = UserInput.inputInt(0,23,"Must be a valid time! HOUR");
-        System.out.println("test1");
-        System.out.println("Enter minutes:");
-        System.out.println("test2");
-        int timeMinSat = UserInput.inputInt(0,59,"YAyeetFejl i indtastning MINUT");
+        //SET TIME FOR PICKUP
+        timeClass.askForTime(order);
 
-        order.setTime(timeClass.setTimeOfTheDay(timeHourSat, timeMinSat));
-        order.setTimeInt(order.convertTimetoTimeInt(order));
-        System.out.println("test" + order.getTimeInt());
-        System.out.println(order.getTime() + " TEST FOR AT TID BLIVER SAT. JAJAJAJJAA");
+        //SEND TO ACTIVE ORDERS
         mariosActiveOrders.addOrderToActiveOrders(order);
-        mariosActiveOrders.displayActiveOrders();
+
     }
 
 
@@ -68,38 +63,3 @@ public class EditOrderFile {
 
 
     }
-
-
-
-
-
-/*
-    void testClass() throws IOException {
-        // Vores test class, hvor vi afprøver alt...
-        TimeClass timeClass = new TimeClass();
-        //timeClass.displayTime();
-        //timeClass.displayInputTime(timeClass.setTimeOfTheDay(13,37));
-
-        Order order1 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
-        Order order4 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
-        Order order2 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,30),930);
-        Order order3 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(12,15),1215);
-        mariosActiveOrders.addOrderToActiveOrders(order1);
-        mariosActiveOrders.addOrderToActiveOrders(order2);
-        mariosActiveOrders.addOrderToActiveOrders(order3);
-        mariosActiveOrders.addOrderToActiveOrders(order4);
-
-
-
-        System.out.println("\n Alle Aktive Ordre");
-        mariosActiveOrders.displayActiveOrders();
-        //confirmOrderSold(order2);
-        //deleteActiveOrder();
-
-        //confirmOrderSold(order3);
-        System.out.println("\nSorted by time:");
-
-        mariosActiveOrders.sortByAttribute();
-
-
- */
