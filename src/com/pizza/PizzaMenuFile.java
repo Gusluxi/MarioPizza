@@ -12,7 +12,7 @@ public class PizzaMenuFile {
             Scanner menuList = new Scanner(menuTextFile);
 
             System.out.println("Skriv nummer på pizza! (#nummer.)");
-            int inputPizzaInt = UserInput.inputInt(0, 14, "Skriv nr. mellem 1-14");
+            int inputPizzaInt = UserInput.inputInt(1, 14, "Skriv nr. mellem 1-14");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 

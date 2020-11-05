@@ -23,14 +23,15 @@ public class UserInput {
     //Validering om det er heltal samt et minimum og maximum tal.
     public static int inputInt(int min, int max, String msg) {
         int number;
+        System.out.println(msg);
         do {
+            System.out.println("Skriv venligst et tal mellem " + min + " og " + max);
             while (!scan.hasNextInt()) {
-                System.out.println("TTTTTTTTTTTTTTTTTTTT");
-                scan.next();
-
+                System.out.println("Fejl, du skal skrive et tal");
+                scan.next(); // this is important!
             }
             number = scan.nextInt();
-        } while (!(number <= max) || !(number >= min));
+        } while (number < min || number > max);
         return number;
     }
 
