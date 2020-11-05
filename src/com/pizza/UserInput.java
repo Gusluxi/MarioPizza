@@ -13,7 +13,7 @@ public class UserInput {
 
         while (!scan.hasNextInt()) {
             System.out.println("Du skal skrive et hel-tal!");
-            System.out.println("Indtast menu nummer: ");
+            System.out.println("Indtast nummer: ");
             scan.nextLine();
         }
         number = scan.nextInt();
@@ -23,9 +23,12 @@ public class UserInput {
     //Validering om det er heltal samt et minimum og maximum tal.
     public static int inputInt(int min, int max, String msg) {
         int number;
-        System.out.println(msg);
+        if (min != max -1)
+            System.out.println(msg);
         do {
-            System.out.println("Skriv venligst et tal mellem " + min + " og " + max);
+            if (min != max -1)
+                System.out.println("Skriv venligst et tal mellem " + min + " og " + max);
+            else System.out.println(msg);
             while (!scan.hasNextInt()) {
                 System.out.println("Fejl, du skal skrive et tal");
                 scan.next(); // this is important!
