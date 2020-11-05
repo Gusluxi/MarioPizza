@@ -1,12 +1,11 @@
 package com.pizza;
 
-import jdk.internal.util.xml.impl.Input;
-
-import java.io.*;
-import java.sql.Time;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+//File, FileNotFoundException, IOException, FileWriter,
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
@@ -14,8 +13,6 @@ public class EditOrderFile {
     static Order order = new Order();
     static Miscellaneous testMisc = new Miscellaneous();
     static Scanner scan = new Scanner(System.in);
-
-
 
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
@@ -34,7 +31,7 @@ public class EditOrderFile {
             //Find ud af, om der skal bestilles flere pizzaer:
             int input = UserInput.inputInt("\nTast 1 for at tilfQje flere pizzaer" +
                     "\nTast 0 for at gemme ordren");
-            if (input==0) {
+            if (input == 0) {
                 start = false;
             }
         }
@@ -42,20 +39,24 @@ public class EditOrderFile {
         order.displayCurrentOrder();
         order.setOrderID(testMisc.newOrderID());
 
-        System.out.println("Enter time of completion");
-        int timeHourSat = UserInput.inputInt();
-        int timeMinSat = UserInput.inputInt();
+        System.out.println("Enter time of completion. Start with hours:");
+        int timeHourSat = UserInput.inputInt(0,23,"Must be a valid time! HOUR");
+        System.out.println("test1");
+        System.out.println("Enter minutes:");
+        System.out.println("test2");
+        int timeMinSat = UserInput.inputInt(0,59,"YAyeetFejl i indtastning MINUT");
 
         order.setTime(timeClass.setTimeOfTheDay(timeHourSat, timeMinSat));
         order.setTimeInt(order.convertTimetoTimeInt(order));
         System.out.println("test" + order.getTimeInt());
         System.out.println(order.getTime() + " TEST FOR AT TID BLIVER SAT. JAJAJAJJAA");
         mariosActiveOrders.addOrderToActiveOrders(order);
-//OBS:  addOrderToActiveOrders(order) sender hele Order ArrayList over til ActiveOrders ArrayList som en enkelt String i stede for mange Strings for hver Pizza.
+        mariosActiveOrders.displayActiveOrders();
     }
 
-    void deleteActiveOrder(){
-        mariosActiveOrders.manualRemoveOrderFromList(2);
+
+    void deleteActiveOrder(int indexInput){
+        mariosActiveOrders.removeOrderFromList(indexInput);
     }
 
     public static void confirmOrderSold(Object order) throws IOException {
@@ -66,6 +67,13 @@ public class EditOrderFile {
     }
 
 
+    }
+
+
+
+
+
+/*
     void testClass() throws IOException {
         // Vores test class, hvor vi afprøver alt...
         TimeClass timeClass = new TimeClass();
@@ -81,20 +89,17 @@ public class EditOrderFile {
         mariosActiveOrders.addOrderToActiveOrders(order3);
         mariosActiveOrders.addOrderToActiveOrders(order4);
 
+
+
         System.out.println("\n Alle Aktive Ordre");
-
-        order2.convertTimetoTimeInt(order2);
-        order2.getTimeInt();
-
-
         mariosActiveOrders.displayActiveOrders();
         //confirmOrderSold(order2);
         //deleteActiveOrder();
 
         //confirmOrderSold(order3);
-        System.out.println("\n");
-        //mariosActiveOrders.displayActiveOrders();
+        System.out.println("\nSorted by time:");
+
         mariosActiveOrders.sortByAttribute();
 
-    }
-}
+
+ */

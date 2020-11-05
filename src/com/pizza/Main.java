@@ -1,14 +1,14 @@
 package com.pizza;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.pizza.EditOrderFile.*;
+import static com.pizza.PizzaMenuFile.*;
+
 public class Main {
-    static ActiveOrders mariosActiveOrders = new ActiveOrders();
-    static PizzaMenuFile readFile = new PizzaMenuFile();
-    static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
+
     static Scanner menuList;
     {
         try {
@@ -20,12 +20,26 @@ public class Main {
 
 
     void run() throws IOException { // MENU
+        EditOrderFile testEO = new EditOrderFile();
+        Miscellaneous testMisc = new Miscellaneous();
+        PizzaMenuFile.printPizzaMenu();
+        TimeClass timeClass = new TimeClass();
+        Order order1 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
+        Order order4 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
+        Order order2 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,30),930);
+        Order order3 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(12,15),1215);
+
+        mariosActiveOrders.addOrderToActiveOrders(order1);
+        mariosActiveOrders.addOrderToActiveOrders(order2);
+        mariosActiveOrders.addOrderToActiveOrders(order3);
+        mariosActiveOrders.addOrderToActiveOrders(order4);
+
         boolean run = true;
         int choice;
         String headertext = "Order Menu:";
         String leadtext = "Vaelg en mulighed: ";
-        String[] menuitems = {"1. Ny order", "2. Rediger order", "3. Delete order",
-                "4. Save order","5. Se aktive ordrer", "9. Exit program"};
+        String[] menuitems = {"1. Add new order", "2. Display active orders", "3. Delete order",
+                "4. Confirm order sold","??", "9. Exit program"};
 
 
         while (run){
@@ -35,20 +49,27 @@ public class Main {
 
             switch (choice){
                 case 1:
-                    System.out.println("Ny Order");
-
+                    System.out.println("1. Add new order");
+                    testEO.startNewOrder();
                     break;
                 case 2:
-                    System.out.println("Edit order");
+                    System.out.println("2. Display orders");
+                    mariosActiveOrders.displayActiveOrders();
 
                     break;
                 case 3:
                     System.out.println("Delete order");
+                    mariosActiveOrders.removeOrderFromList(UserInput.inputInt("Input index number of Order"));
 
                     break;
                 case 4:
                     System.out.println("Save order");
-
+                    mariosActiveOrders.displayActiveOrders();
+                    int index = (UserInput.inputInt("Input index number of order") -1); //giver den første, når han skriver 1. (istedet for 0)
+                    confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
+                    mariosActiveOrders.removeOrderFromList(index);
+                    System.out.println("Orders left: ");
+                    mariosActiveOrders.displayActiveOrders();
                     break;
                 case 5:
                     System.out.println("Se aktive orders");
@@ -67,17 +88,8 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        EditOrderFile testEO = new EditOrderFile();
-        Miscellaneous testMisc = new Miscellaneous();
-        PizzaMenuFile.printPizzaMenu();
-        testEO.startNewOrder();
-        System.out.println("Du har lavet en ny ordre.. Nu kommer testclassen: \n");
-        testEO.testClass();
-
-
-
-        //Main prg = new Main();
-        //prg.run();
+        Main prg = new Main();
+        prg.run();
 
     }
 }

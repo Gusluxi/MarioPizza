@@ -10,7 +10,6 @@ public class Miscellaneous {
     private final String FILENAME = "src\\com\\pizza\\OrderID.txt";
     private int currentOrderID;
 
-
     public int getCurrentOrderID() {
         return currentOrderID;
     }
@@ -20,7 +19,6 @@ public class Miscellaneous {
     }
 
     int readOrderID() {
-
         try {
             Scanner iDFileScan = new Scanner(new File(FILENAME));
             String stringID = iDFileScan.nextLine();
@@ -44,7 +42,6 @@ public class Miscellaneous {
 
     int newOrderID() throws FileNotFoundException {
         int ID = generateOrderID();
-
         return ID;
 
     }

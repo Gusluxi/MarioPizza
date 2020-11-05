@@ -24,15 +24,16 @@ public class UserInput {
     public static int inputInt(int min, int max, String msg) {
         int number;
         do {
-            System.out.println(msg);
             while (!scan.hasNextInt()) {
-                System.out.println("Fejl du har ikke skrevet et hel-tal mellem " + min + " og " + max);
+                System.out.println("TTTTTTTTTTTTTTTTTTTT");
                 scan.next();
+
             }
             number = scan.nextInt();
-        } while ((number <= max) == false || (number >= min) == false);
+        } while (!(number <= max) || !(number >= min));
         return number;
     }
+
     public static int inputInt(String msgOutput) {
         int number;
         System.out.println(msgOutput);
@@ -52,7 +53,7 @@ public class UserInput {
             System.out.println("Skriv string: ");
             scan.next();
         }
-        word = scan.nextLine();
+        word = scan.next();
         return word;
     }
 

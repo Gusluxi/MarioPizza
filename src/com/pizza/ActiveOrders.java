@@ -21,12 +21,8 @@ public class ActiveOrders {
     }
     //
 
-    void RemoveOrderFromList() {
-        activeOrders.remove(0);
-    }
-
-    void manualRemoveOrderFromList(int orderNumber) {
-        activeOrders.remove(orderNumber);
+    void removeOrderFromList(int index) {
+        activeOrders.remove(index);
     }
 
     public void addOrderToActiveOrders(Order order) {
@@ -35,6 +31,7 @@ public class ActiveOrders {
     //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
     void displayActiveOrders() {
+        sortByAttribute();
         for (int i = 0; i < activeOrders.size(); i++) {
             System.out.println(activeOrders.get(i));
         }
@@ -43,22 +40,9 @@ public class ActiveOrders {
 
     void sortByAttribute(){
         Collections.sort(activeOrders);
-        for (Order order:activeOrders){
-            System.out.println(order.toString());
-        }
     }
-
 
 }
 
-
-/*
-    void sortByAttribute(ActiveOrders activeOrderList) {
-        for (int i = 0; i < activeOrders.size(); i++) {
-            Collections.sort(activeOrders, Collections.reverseOrder());
-        }
-    }
-
- */
 
 

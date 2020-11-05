@@ -1,9 +1,8 @@
 package com.pizza;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Comparator;
+
 
 public class Order implements Comparable<Order> {
 
@@ -13,28 +12,6 @@ public class Order implements Comparable<Order> {
     private int timeInt;
     private ArrayList<String> order = new ArrayList<String>();
     private int orderID;
-
-    public int getTimeInt(){
-        return this.timeInt;
-    }
-    public void setTimeInt(int timeInt){
-        this.timeInt=timeInt;
-    }
-
-    public static void setLocalTime(LocalTime localTime) {
-        Order.localTime = localTime;
-    }
-
-    public int convertTimetoTimeInt(Order order){
-        String time = order.getTime();
-        String timeFixed = time.substring(0,2) + time.substring(3,5);
-        int timeInt = Integer.parseInt(timeFixed);
-        return timeInt;
-    }
-
-    public String getTime() {
-        return time;
-    }
 
     Order(){
     }
@@ -46,6 +23,26 @@ public class Order implements Comparable<Order> {
         this.timeInt=timeInt;
         this.orderID=orderID;
         this.time=time;
+    }
+
+    public int getTimeInt(){
+        return this.timeInt;
+    }
+
+    public void setTimeInt(int timeInt){
+        this.timeInt=timeInt;
+    }
+
+    public static void setLocalTime(LocalTime localTime) {
+        Order.localTime = localTime;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public int getOrderID(){
@@ -68,17 +65,18 @@ public class Order implements Comparable<Order> {
         order.add(pizzaName);
     }
 
+
+
     void displayCurrentOrder(){
         for (int i=0; i < order.size(); i++){
             System.out.println(order.get(i));
         }
     }
 
-
     public String findPizzaNumber() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
-            pizzaNumber += " " + getOrder().get(i).substring(0,3);
+            pizzaNumber += " " + getOrder().get(i).substring(1,3);
 
         }
         return pizzaNumber;
@@ -87,29 +85,23 @@ public class Order implements Comparable<Order> {
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
-        return timeInt + "<------- Order{" + "order = " + pizzaNumber + ", orderID = " + orderID + ", time = '" + time + '\'' + '}';
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+        return timeInt + "<---Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}';
     }
 
     @Override
-    public int compareTo(Order o) {
-        int compare = ((Order)o).getTimeInt();
+    public int compareTo(Order order) {
+        int compare = order.getTimeInt();
         return this.timeInt-compare;
     }
 
-
-
-
-/*
-    public String compareTo(Order compareOrder) {
-        String compareTime=((Order)compareOrder).getTime();
-        return ;
+    public int convertTimetoTimeInt(Order order){
+        String time = order.getTime();
+        String timeFixed = time.substring(0,2) + time.substring(3,5);
+        int timeInt = Integer.parseInt(timeFixed);
+        return timeInt;
     }
 
- */
+
 
 
 }
