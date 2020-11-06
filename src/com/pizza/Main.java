@@ -86,7 +86,7 @@ public class Main {
                     System.out.println("Vælg ordre der skal rettes: ");
                     mariosActiveOrders.indexDisplayActiveOrders();
                     int indexEdit = (UserInput.inputInt("Input index number of order to edit: ") -1);
-                    testEO.editOrder(indexEdit);
+                    //testEO.editOrder(indexEdit);
 
                     break;
                 case 9:

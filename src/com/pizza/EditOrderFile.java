@@ -20,20 +20,11 @@ public class EditOrderFile {
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
         TimeClass timeClass = new TimeClass();
-        boolean start = true;
-        while (start) {
-            order.addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
-            order.displayCurrentOrder("Nye ordrer:");
 
-            //Find ud af, om der skal bestilles flere pizzaer:
-            int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
-                    "\n2. for at gemme ordren");
-            if (input == 2) {
-                start = false;
-            }
-        }
+        //ADD PIZZA TO ORDER
+        addPizzaToOrder(order);
 
-        order.displayCurrentOrder("The complete order");
+        order.displayCurrentOrder("Dette er hele ordren:");
 
         //GENERATE ORDER ID
         order.setOrderID(testMisc.newOrderID());
@@ -47,10 +38,26 @@ public class EditOrderFile {
     }
 
 
-    void editOrder(int editChosenOrder) throws FileNotFoundException {
+    void addPizzaToOrder(Order order) throws FileNotFoundException {
+        boolean start = true;
+        while (start) {
+            order.addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
+            order.displayCurrentOrder("Nye ordrer:");
+
+            //Find ud af, om der skal bestilles flere pizzaer:
+            int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
+                    "\n2. for at gemme ordren");
+            if (input == 2) {
+                start = false;
+            }
+        }
+    }
+
+    void editOrder(int editChosenOrder,Order order) throws FileNotFoundException {
 
         boolean start = true;
         while (start) {
+
 
             int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer til ordren " +
                     "\n2. for at slette en pizza fra ordren");
