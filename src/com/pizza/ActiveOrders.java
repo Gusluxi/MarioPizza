@@ -33,15 +33,8 @@ public class ActiveOrders {
     }
     //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
-    void displayActiveOrders(String msg) {
-        System.out.println(msg);
-        sortByAttribute();
-        for (int i = 0; i < activeOrders.size(); i++) {
-            System.out.println(activeOrders.get(i));
-        }
 
-    }
-
+    //Denne metode viser index-tallet på ordren i aktive-order-listen. (Bruges i fx i Delete-menuen)
     void indexDisplayActiveOrders(){
         sortByAttribute();
         for (int i = 0; i < activeOrders.size(); i++) {
@@ -50,12 +43,22 @@ public class ActiveOrders {
 
         }
     }
-
+    //Sorterer ordrer efter attribut (givet i Order class)
+    //Skulle den sortere efter andre attributer, skulle vi bruge en Comparator istedet for
     void sortByAttribute(){
         Collections.sort(activeOrders);
     }
 
 }
 
+/*
+ void displayActiveOrders(String msg) {
+        System.out.println(msg);
+        sortByAttribute();
+        for (int i = 0; i < activeOrders.size(); i++) {
+            System.out.println(activeOrders.get(i));
+        }
 
+    }
+ */
 

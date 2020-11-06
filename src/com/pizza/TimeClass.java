@@ -10,12 +10,15 @@ public class TimeClass {
         return currentRealTime;
     }
 
+
+    //Returner en STRING efter time-minut input
     String setTimeOfTheDay(int hours, int min) {
         LocalTime setTime = LocalTime.of(hours,min);
         String timeTest = setTime.toString();
         return timeTest;
     }
 
+    //Vi beder USER om at indsætte en tids-attribut på en order.
     void askForTime(Order order){
         //Ask for input, then assign value to timer
         int timeHourSat = UserInput.inputInt(0,23,"Skriv en bestemt time:");

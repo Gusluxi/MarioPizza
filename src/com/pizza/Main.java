@@ -20,15 +20,16 @@ public class Main {
 
 
     void run() throws IOException { // MENU
+        //Indsætter instanser af klasser og opretter ordrer, så det er sjovere at teste.
         EditOrderFile testEO = new EditOrderFile();
         Miscellaneous testMisc = new Miscellaneous();
         PizzaMenuFile.printPizzaMenu();
         TimeClass timeClass = new TimeClass();
+
         Order order1 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
         Order order4 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
         Order order2 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,30),930);
         Order order3 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(12,15),1215);
-
         mariosActiveOrders.addOrderToActiveOrders(order1);
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);

@@ -67,7 +67,7 @@ public class Order implements Comparable<Order> {
         order.add(pizzaName);
     }
 
-
+    //Metode navnet siger det
     void displayCurrentOrder(String msg) {
         sortByAttribute();
         System.out.println(msg);
@@ -76,6 +76,7 @@ public class Order implements Comparable<Order> {
         }
     }
 
+    //Denne metode afleverer Pizzanummeret istedet for hele navnet, som vi bruger i toString().
     public String findPizzaNumber() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
@@ -92,12 +93,15 @@ public class Order implements Comparable<Order> {
     }
 
 
-    @Override
+    @Override //vigtig metode til at sortere vores Ordrer efter tids-elementet i dem. Bruges i sortByAttribute()
+    //Hvis rækkefølgen skal ændres, så byt om på this.timeInt og compare
+
     public int compareTo(Order order) {
         int compare = order.getTimeInt();
         return this.timeInt - compare;
     }
 
+    //Konverterer tids-attributen til en int, og assigner den til ordren. Så kan vi nemmere sortere.
     public int convertTimetoTimeInt(Order order) {
         String time = order.getTime();
         String timeFixed = time.substring(0, 2) + time.substring(3, 5);
@@ -105,6 +109,7 @@ public class Order implements Comparable<Order> {
         return timeInt;
     }
 
+    //Den sorterer :)
     void sortByAttribute() {
         Collections.sort(order);
     }

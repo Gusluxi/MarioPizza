@@ -18,6 +18,7 @@ public class Miscellaneous {
         this.currentOrderID = currentOrderID;
     }
 
+    //Denne metode læser en fil og returner tallet i filen.
     int readOrderID() {
         try {
             Scanner iDFileScan = new Scanner(new File(FILENAME));
@@ -31,7 +32,9 @@ public class Miscellaneous {
         }
         return -1;
     }
-    int generateOrderID() throws FileNotFoundException {
+
+    //Denne metode henter et integer fra ovenstående metode, plusser med 1, og setter IDet til ordren + noterer det i filen
+    int newOrderID() throws FileNotFoundException {
         int countID = readOrderID();
         countID ++;
         PrintStream writeToFile = new PrintStream(FILENAME);
@@ -40,9 +43,12 @@ public class Miscellaneous {
         return countID;
     }
 
+}
+
+/*
+    //Kalder bare på ovenstående metode og returnerer tallet. (OVERFLØDIG, MEN SER FINERE UD SYNES VI)
     int newOrderID() throws FileNotFoundException {
         int ID = generateOrderID();
         return ID;
-
     }
-}
+ */

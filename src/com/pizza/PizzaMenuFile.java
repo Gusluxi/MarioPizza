@@ -21,9 +21,10 @@ public class PizzaMenuFile {
                     return lineFromText;
                 }
             }
-            return "Error - This program sucks";
+            return "Error - Kan ikke finde MenuFilen!";
         }
 
+        //Scanner Menuen og printer den..
         static void printPizzaMenu() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 

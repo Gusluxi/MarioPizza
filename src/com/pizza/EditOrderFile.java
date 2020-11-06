@@ -16,10 +16,7 @@ public class EditOrderFile {
 
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
-    //Så beder vi Alfonso om at indtaste pizzaer
-    //Sidst giver vi ordren et ID og displayer den.
-    //ALLER SIDST SÆTTER VI DEN I AKTIVE ORDRE, SÅ MARIO KAN LÆSE DEM
-
+    //Vi beder om input omkring ordren og assigner attributer til dem til sidst.
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
         TimeClass timeClass = new TimeClass();
@@ -49,17 +46,17 @@ public class EditOrderFile {
 
     }
 
-
-    void deleteActiveOrder(int indexInput){
-        mariosActiveOrders.removeOrderFromList(indexInput);
-    }
-
+    //Vi skriver en Order ind i en textfil, så vi gemmer solgte ordre.
     public static void confirmOrderSold(Object order) throws IOException {
         FileWriter fw = new FileWriter(PitzHistoric,true);
         fw.write(order.toString());
         fw.write("\n");
         fw.close();
     }
+ }
 
-
+ /*
+    void deleteActiveOrder(int indexInput){
+        mariosActiveOrders.removeOrderFromList(indexInput);
     }
+ */
