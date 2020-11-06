@@ -23,18 +23,19 @@ public class UserInput {
     //Validering om det er heltal samt et minimum og maximum tal.
     public static int inputInt(int min, int max, String msg) {
         int number;
-        if (min != max -1)
-            System.out.println(msg);
+        System.out.println(msg);
         do {
-            if (min != max -1)
-                System.out.println("Skriv venligst et tal mellem " + min + " og " + max);
-            else System.out.println(msg);
+
             while (!scan.hasNextInt()) {
-                System.out.println("Fejl, du skal skrive et tal");
-                scan.next(); // this is important!
-            }
+                System.out.println("Fejl, du skal skrive et tal:");
+                scan.next();
+                }
             number = scan.nextInt();
+            if (number < min || number > max) {
+                System.out.println("Du skal skrive et tal mellem " + min + " og " + max + ":");
+            }
         } while (number < min || number > max);
+
         return number;
     }
 

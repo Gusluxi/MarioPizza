@@ -23,10 +23,8 @@ public class TimeClass {
 
     void askForTime(Order order){
         //Ask for input, then assign value to timer
-        System.out.println("Enter time of completion. Start with hours:");
-        int timeHourSat = UserInput.inputInt(0,23,"Must be a valid time! HOUR");
-        System.out.println("Enter minutes:");
-        int timeMinSat = UserInput.inputInt(0,59,"YAyeetFejl i indtastning MINUT");
+        int timeHourSat = UserInput.inputInt(0,23,"Skriv en bestemt time:");
+        int timeMinSat = UserInput.inputInt(0,59,"Skriv en bestemt minute:");
         System.out.println(timeHourSat);
         System.out.println(timeMinSat);
         //Assigning values order
