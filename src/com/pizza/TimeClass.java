@@ -20,8 +20,7 @@ public class TimeClass {
         //Ask for input, then assign value to timer
         int timeHourSat = UserInput.inputInt(0,23,"Skriv en bestemt time:");
         int timeMinSat = UserInput.inputInt(0,59,"Skriv en bestemt minute:");
-        System.out.println(timeHourSat);
-        System.out.println(timeMinSat);
+
         //Assigning values order
         order.setTime(setTimeOfTheDay(timeHourSat, timeMinSat));
         order.setTimeInt(order.convertTimetoTimeInt(order));
