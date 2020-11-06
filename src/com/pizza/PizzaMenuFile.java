@@ -29,7 +29,7 @@ public class PizzaMenuFile {
         public static String findAndDeleteFromOrder() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
-            int inputPizzaInt = UserInput.inputInt(1,14,"Skriv nr på pizzaen som skal slettes");
+            int inputPizzaInt = UserInput.inputInt(1,14,"Skriv nr. på den pizza som skal slettes:");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
@@ -42,14 +42,14 @@ public class PizzaMenuFile {
             return "Jeg laver det her mens jeg er træt";
         }
 
-        //Scanner Menuen og printer den..
+        //Scanner PizzaMenu.txt og printer den..
     static void printPizzaMenu() throws FileNotFoundException {
         Scanner menuList = new Scanner(menuTextFile);
 
         while (menuList.hasNextLine())
            System.out.println(menuList.nextLine());
     }
-
+        //Scanner PizzaMenu2.txt og printer den..
     static void printPizzaMenu2() throws FileNotFoundException {
         Scanner menuList = new Scanner(menuTextFile2);
 

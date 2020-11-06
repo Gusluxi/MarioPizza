@@ -103,9 +103,6 @@ public class Main {
                     testEO.editOrder(indexEdit);
 
                     break;
-                case 6:
-                    PizzaMenuFile.printPizzaMenu2();
-                    break;
                 case 9:
                     System.out.println("Exiting program...");
                     run = false;
@@ -121,5 +118,6 @@ public class Main {
 
         Main prg = new Main();
         prg.run();
+
     }
 }

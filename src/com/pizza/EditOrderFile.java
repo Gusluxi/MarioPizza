@@ -52,27 +52,53 @@ public class EditOrderFile {
         }
     }
 
+    void removePizzaFromOrderEO(Order order, int indexEdit) throws FileNotFoundException {
+        int input = 1;
+        if (order.getOrder().size() == 0)
+            mariosActiveOrders.removeOrderFromList(indexEdit);
+        else {
+            order.displayCurrentOrder("Hele Ordren:");
+            while (input == 1) {
+                System.out.println(mariosActiveOrders.getActiveOrders().get(indexEdit).findPizzaNumber());
+                mariosActiveOrders.getActiveOrders().get(indexEdit).removePizzaFromOrder(PizzaMenuFile.findAndDeleteFromOrder());
+                order.displayCurrentOrder("Hele Ordren:");
+
+                if (order.getOrder().size() == 1 || order.getOrder().size() == 0) {
+                    input = UserInput.inputInt(1, 2, "\n1. for at slette den sidste pizza og hele ordren " +
+                            "\n2. for at gemme resten af ordren");
+                    if (input == 1 || order.getOrder().size() == 0)
+                        mariosActiveOrders.removeOrderFromList(indexEdit);
+                    input = 2;
+                } else if (order.getOrder().size() != 1) {
+                    input = UserInput.inputInt(1, 2, "\n1. for at slette flere pizzaer " +
+                            "\n2. for at gemme ordren");
+                }
+            }
+        }
+    }
+
     void editOrder(int indexEdit) throws FileNotFoundException {
 
         boolean start = true;
         while (start) {
 
-            int input = UserInput.inputInt(1, 2, "\n1. For at tilføje flere pizzaer til ordren " +
-                    "\n2. Slet enkelte pizzaer fra ordren.");
+
+            int input = UserInput.inputInt(1, 3, "\n1. for at tilføje flere pizzaer til ordren " +
+                    "\n2. for at slette enkelte pizzaer fra ordren" +
+                    "\n3. for at ændre tiden for en ordren");
             if (input==1) {
                 addPizzaToOrder(mariosActiveOrders.getActiveOrders().get(indexEdit));
             }
 
             if (input == 2) {
-                System.out.println("Hvilken pizza skal slettes?");
-
-                removePizzaFromOrderEO(indexEdit,mariosActiveOrders.getActiveOrders().get(indexEdit));
+                removePizzaFromOrderEO(mariosActiveOrders.getActiveOrders().get(indexEdit), indexEdit);
                 }
-
-            start = false;
+            if (input == 3) {
+                editOrderTime(indexEdit);
+            }
+                start = false;
         }
-            editOrderTime(indexEdit);
-        }
+    }
 
 
 
@@ -99,7 +125,7 @@ public class EditOrderFile {
     }
 
     //ORDREN mariosActiveOrders.getActiveOrders().get(indexEdit))
-
+/*
     void removePizzaFromOrderEO(int indexEdit,Order order) throws FileNotFoundException {
         int input=1;
         while (input==1) {
@@ -112,7 +138,7 @@ public class EditOrderFile {
             input = UserInput.inputInt(1,2,"Vil du slette flere? \n1 for Ja, 2 for Nej");
             }
         }
-
+*/
 
 
 
