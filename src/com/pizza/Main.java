@@ -66,7 +66,9 @@ public class Main {
                     System.out.print("DELETING ORDER: #" + indexDel+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
                     mariosActiveOrders.removeOrderFromList(indexDel);
-                    mariosActiveOrders.displayActiveOrders("\nActive orders: ");
+                    System.out.println("\nRemaining active orders:");
+                    mariosActiveOrders.indexDisplayActiveOrders();
+
                     break;
                 case 4:
                     System.out.println("4. Save completed order:");
