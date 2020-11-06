@@ -36,7 +36,7 @@ public class Main {
 
         boolean run = true;
         int choice;
-        String headertext = "Order Menu:";
+        String headertext = timeClass.displayTime() + "\nOrder Menu:";
         String leadtext = "Vaelg en mulighed: ";
         String[] menuitems = {"1. Add new order", "2. Display active orders", "3. Delete order",
                 "4. Confirm order sold","Yayeet", "9. Exit program"};
@@ -46,7 +46,6 @@ public class Main {
             Menu menu = new Menu(headertext,leadtext,menuitems);
             menu.printMenu();
             choice = UserInput.inputInt(leadtext);
-
             switch (choice){
                 case 1:
                     System.out.println("1. Add new order:");
