@@ -35,7 +35,8 @@ public class ActiveOrders {
 
 
     //Denne metode viser index-tallet på ordren i aktive-order-listen. (Bruges i fx i Delete-menuen)
-    void indexDisplayActiveOrders(){
+    void indexDisplayActiveOrders(String msgToUser){
+        System.out.println(msgToUser);
         sortByAttribute();
         for (int i = 0; i < activeOrders.size(); i++) {
             String clas = Integer.toString(i+1);

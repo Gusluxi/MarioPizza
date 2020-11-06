@@ -36,11 +36,11 @@ public class EditOrderFile {
 
     }
 
-
+    //Takes the order object and adds an
     void addPizzaToOrder(Order order) throws FileNotFoundException {
         boolean start = true;
         while (start) {
-            order.addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
+            order.addPizzaToOrder(PizzaMenuFile.findAndReturnPizza());
             order.displayCurrentOrder("Nye ordrer:");
 
             //Find ud af, om der skal bestilles flere pizzaer:
@@ -51,7 +51,8 @@ public class EditOrderFile {
             }
         }
     }
-
+    //Takes the selected order and removes a selected pizza in a while loop.
+    //If there is only one pizza left in the order it will ask to either delete the entire order or save it and finish the loop.
     void removePizzaFromOrderEO(Order order, int indexEdit) throws FileNotFoundException {
         int input = 1;
         if (order.getOrder().size() == 0)
