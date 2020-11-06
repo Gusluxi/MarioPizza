@@ -54,7 +54,9 @@ public class Main {
                     testEO.startNewOrder();
                     break;
                 case 2:
-                    mariosActiveOrders.displayActiveOrders("2. Active orders: ");
+                    System.out.println("2. Active orders: ");
+                    mariosActiveOrders.indexDisplayActiveOrders();
+                    //mariosActiveOrders.displayActiveOrders("2. Active orders: "); Hvis vi vil se "hemmelig" tids-atribut (timeInt), som kan printes i toString under Order-class
                     break;
                 case 3:
                     System.out.println("3. Delete order:");
@@ -64,7 +66,9 @@ public class Main {
                     System.out.print("DELETING ORDER: #" + indexDel+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
                     mariosActiveOrders.removeOrderFromList(indexDel);
-                    mariosActiveOrders.displayActiveOrders("\nActive orders: ");
+                    System.out.println("\nRemaining active orders:");
+                    mariosActiveOrders.indexDisplayActiveOrders();
+
                     break;
                 case 4:
                     System.out.println("4. Save completed order:");
@@ -75,7 +79,8 @@ public class Main {
                     mariosActiveOrders.printSelectedOrderFromList(index);
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
                     mariosActiveOrders.removeOrderFromList(index);
-                    mariosActiveOrders.displayActiveOrders("Active orders: ");
+                    System.out.println("\nRemaining active orders:");
+                    mariosActiveOrders.indexDisplayActiveOrders();
                     break;
                 case 5:
                     System.out.println("yAyEEt");
