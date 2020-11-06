@@ -79,7 +79,7 @@ public class Order implements Comparable<Order> {
     public String findPizzaNumber() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
-            pizzaNumber += getOrder().get(i).substring(1, 3);
+            pizzaNumber += getOrder().get(i).substring(1, 3) + ", ";
 
         }
         return pizzaNumber;
