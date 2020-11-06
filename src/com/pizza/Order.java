@@ -27,6 +27,9 @@ public class Order implements Comparable<Order> {
         this.time = time;
     }
 
+    public Order(ArrayList<String> pizza1, int orderID, String time, int timeInt) {
+    }
+
     public int getTimeInt() {
         return this.timeInt;
     }
@@ -67,6 +70,9 @@ public class Order implements Comparable<Order> {
         order.add(pizzaName);
     }
 
+    void removePizzaFromOrder(String pizzaName) {order.remove(pizzaName);}
+
+    
     //Metode navnet siger det
     void displayCurrentOrder(String msg) {
         sortByAttribute();

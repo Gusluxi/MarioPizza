@@ -2,6 +2,7 @@ package com.pizza;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.pizza.EditOrderFile.*;
@@ -23,8 +24,9 @@ public class Main {
         //Indsætter instanser af klasser og opretter ordrer, så det er sjovere at teste.
         EditOrderFile testEO = new EditOrderFile();
         Miscellaneous testMisc = new Miscellaneous();
-        PizzaMenuFile.printPizzaMenu();
+
         TimeClass timeClass = new TimeClass();
+
 
         Order order1 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
         Order order4 = new Order(testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
@@ -35,12 +37,14 @@ public class Main {
         mariosActiveOrders.addOrderToActiveOrders(order3);
         mariosActiveOrders.addOrderToActiveOrders(order4);
 
+        mariosActiveOrders.indexDisplayActiveOrders();
+
         boolean run = true;
         int choice;
         String headertext = timeClass.displayTime() + "\nOrder Menu:";
         String leadtext = "Vaelg en mulighed: ";
         String[] menuitems = {"1. Add new order", "2. Display active orders", "3. Delete order",
-                "4. Confirm order sold","5. Edit order", "9. Exit program"};
+                "4. Confirm order sold","5. Edit order","6. Display Menu", "9. Exit program"};
 
 
         while (run){
@@ -89,6 +93,9 @@ public class Main {
                     testEO.editOrder(indexEdit);
 
                     break;
+                case 6:
+                    PizzaMenuFile.printPizzaMenu2();
+                    break;
                 case 9:
                     System.out.println("Exiting program...");
                     run = false;
@@ -104,6 +111,5 @@ public class Main {
 
         Main prg = new Main();
         prg.run();
-
     }
 }

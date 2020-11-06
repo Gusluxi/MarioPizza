@@ -4,23 +4,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 //File, FileNotFoundException, IOException, FileWriter,
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
-    static Order order = new Order();
     static Miscellaneous testMisc = new Miscellaneous();
-    static Scanner scan = new Scanner(System.in);
-
+    static TimeClass timeClass = new TimeClass();
+    static Order order = new Order();
+    // static Scanner scan = new Scanner(System.in);
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
     //Vi beder om input omkring ordren og assigner attributer til dem til sidst.
 
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
-        TimeClass timeClass = new TimeClass();
 
         //ADD PIZZA TO ORDER
         addPizzaToOrder(order);
@@ -59,17 +57,16 @@ public class EditOrderFile {
         boolean start = true;
         while (start) {
 
-
-            int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer til ordren " +
-                    "\n2. for at slette en pizza fra ordren");
+            int input = UserInput.inputInt(1, 2, "\n1. For at tilføje flere pizzaer til ordren " +
+                    "\n2. Slet enkelte pizzaer fra ordren.");
             if (input==1) {
-                //Ordren mariosActiveOrders.getActiveOrders().get(indexEdit);
                 addPizzaToOrder(mariosActiveOrders.getActiveOrders().get(indexEdit));
             }
 
             if (input == 2) {
-                mariosActiveOrders.removeOrderFromList(indexEdit);
+                removePizzaFromOrderEO(indexEdit);
                 }
+
             start = false;
         }
             editOrderTime(indexEdit);
@@ -77,9 +74,8 @@ public class EditOrderFile {
 
 
 
-    void editOrderTime(int editChosenOrder) {
+    void editOrderTime(int indexEdit) {
         TimeClass timeClass = new TimeClass();
-        Order order = new Order();
 
         System.out.println("\nSkal tidspunktet for pickup ændres?");
 
@@ -87,17 +83,39 @@ public class EditOrderFile {
         while (start) {
 
             int inputChangePickUpTime = UserInput.inputInt(1, 2, "1. Ændre pickup-tidspunkt " +
-                    "\n2. Behold nuværende pickup-tidspunkt (" + mariosActiveOrders.getActiveOrders().get(editChosenOrder).getTime() + ")");
+                    "\n2. Behold nuværende pickup-tidspunkt (" + mariosActiveOrders.getActiveOrders().get(indexEdit).getTime() + ")");
 
             if (inputChangePickUpTime == 1) {
-                timeClass.askForTime(mariosActiveOrders.getActiveOrders().get(editChosenOrder));
+                timeClass.askForTime(mariosActiveOrders.getActiveOrders().get(indexEdit));
             }
             if (inputChangePickUpTime == 2) {
-                System.out.println("Ordren ser nu således ud: " + mariosActiveOrders.getActiveOrders().get(editChosenOrder));
-                start = false;
+                System.out.println("Ordren ser nu således ud: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
+
             }
+            start = false;
         }
     }
+
+    //ORDREN mariosActiveOrders.getActiveOrders().get(indexEdit))
+
+    void removePizzaFromOrderEO(int indexEdit) throws FileNotFoundException {
+        boolean start = true;
+        while (start) {
+            String lala;
+
+            System.out.println(mariosActiveOrders.getActiveOrders().get(indexEdit).findPizzaNumber());
+            System.out.println("Skriv pizza");
+            String inputRemovePizzaName = UserInput.inputString();
+            mariosActiveOrders.getActiveOrders().get(indexEdit).removePizzaFromOrder(inputRemovePizzaName);
+            order.displayCurrentOrder("Nye ordrer:");
+
+
+            }
+        }
+
+
+
+
 
 
     //Vi skriver en Order ind i en textfil, så vi gemmer solgte ordre.
