@@ -2,71 +2,32 @@ package com.pizza;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderTest {
 
-    @Test
-    void getTimeInt() {
-    }
-
-    @Test
-    void setTimeInt() {
-    }
-
-    @Test
-    void setLocalTime() {
-    }
-
-    @Test
-    void getTime() {
-    }
-
-    @Test
-    void setTime() {
-    }
-
-    @Test
-    void getOrderID() {
-    }
-
-    @Test
-    void setOrderID() {
-    }
-
-    @Test
-    void getOrder() {
-    }
-
-    @Test
-    void setOrder() {
-    }
-
-    @Test
-    void addPizzaToOrder() {
-    }
-
-    @Test
-    void displayCurrentOrder() {
-    }
 
     @Test
     void findPizzaNumber() {
-    }
+    Order order = new Order();
+    ArrayList<String> testArray = new ArrayList<>();
+    testArray.add("#01. Vesuvio:");
+    testArray.add("#05. Dennis:");
+    order.setOrder(testArray);
 
-    @Test
-    void testToString() {
-    }
-
-    @Test
-    void compareTo() {
+    String expected = "01, 05, ";
+    String test = order.findPizzaNumber();
+    assertEquals(expected,test);
     }
 
     @Test
     void convertTimetoTimeInt() {
+        Order order = new Order();
+        order.setTime("15:25");
+        int tested = order.convertTimetoTimeInt(order);
+        assertEquals(1525,tested);
     }
 
-    @Test
-    void sortByAttribute() {
-    }
 }
