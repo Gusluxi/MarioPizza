@@ -24,13 +24,17 @@ public class ActiveOrders {
     void removeOrderFromList(int index) {
         activeOrders.remove(index);
     }
+    void printSelectedOrderFromList(int index) {
+        System.out.print(activeOrders.get(index) + "\n");;
+    }
 
     public void addOrderToActiveOrders(Order order) {
         this.activeOrders.add(order);
     }
     //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
-    void displayActiveOrders() {
+    void displayActiveOrders(String msg) {
+        System.out.println(msg);
         sortByAttribute();
         for (int i = 0; i < activeOrders.size(); i++) {
             System.out.println(activeOrders.get(i));
@@ -38,7 +42,7 @@ public class ActiveOrders {
 
     }
 
-    void deleteDisplayActiveOrders(){
+    void indexDisplayActiveOrders(){
         sortByAttribute();
         for (int i = 0; i < activeOrders.size(); i++) {
             String clas = Integer.toString(i+1);

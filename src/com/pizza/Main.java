@@ -49,36 +49,40 @@ public class Main {
 
             switch (choice){
                 case 1:
-                    System.out.println("1. Add new order");
+                    System.out.println("1. Add new order:");
+
                     testEO.startNewOrder();
                     break;
                 case 2:
-                    System.out.println("2. Display orders");
-                    mariosActiveOrders.displayActiveOrders();
-
+                    mariosActiveOrders.displayActiveOrders("2. Active orders: ");
                     break;
                 case 3:
-                    System.out.println("Delete order");
-                    mariosActiveOrders.deleteDisplayActiveOrders();
-                    mariosActiveOrders.removeOrderFromList(UserInput.inputInt("Input index number of Order")-1);
+                    System.out.println("3. Delete order:");
 
+                    mariosActiveOrders.indexDisplayActiveOrders();
+                    int indexDel = (UserInput.inputInt("Input index number of order to delete: ") - 1);
+                    System.out.print("DELETING ORDER: #" + indexDel+1 + " ");
+                    mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
+                    mariosActiveOrders.removeOrderFromList(indexDel);
+                    mariosActiveOrders.displayActiveOrders("\nActive orders: ");
                     break;
                 case 4:
-                    System.out.println("Save order");
-                    mariosActiveOrders.displayActiveOrders();
-                    int index = (UserInput.inputInt("Input index number of order") -1); //giver den første, når han skriver 1. (istedet for 0)
+                    System.out.println("4. Save completed order:");
+
+                    mariosActiveOrders.indexDisplayActiveOrders();
+                    int index = (UserInput.inputInt("Input index number of order to save: ") -1); //giver den første, når han skriver 1. (istedet for 0)
+                    System.out.print("SAVING ORDER: #" + index+1 + " ");
+                    mariosActiveOrders.printSelectedOrderFromList(index);
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
                     mariosActiveOrders.removeOrderFromList(index);
-
-                    System.out.println("Orders left: ");
-                    mariosActiveOrders.displayActiveOrders();
+                    mariosActiveOrders.displayActiveOrders("Active orders: ");
                     break;
                 case 5:
                     System.out.println("yAyEEt");
 
                     break;
                 case 9:
-                    System.out.println("Exiting program");
+                    System.out.println("Exiting program...");
                     run = false;
                     break;
                 default:

@@ -26,17 +26,17 @@ public class EditOrderFile {
         boolean start = true;
         while (start) {
             order.addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
-            order.displayCurrentOrder();
+            order.displayCurrentOrder("Nye ordrer:");
 
             //Find ud af, om der skal bestilles flere pizzaer:
-            int input = UserInput.inputInt("\nTast 1 for at tilfQje flere pizzaer" +
-                    "\nTast 0 for at gemme ordren");
-            if (input == 0) {
+            int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
+                    "\n2. for at gemme ordren");
+            if (input == 2) {
                 start = false;
             }
         }
-        System.out.println("The complete order: ");
-        order.displayCurrentOrder();
+
+        order.displayCurrentOrder("The complete order");
 
         //GENERATE ORDER ID
         order.setOrderID(testMisc.newOrderID());

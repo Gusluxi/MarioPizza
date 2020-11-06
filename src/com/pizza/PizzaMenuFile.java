@@ -10,9 +10,8 @@ public class PizzaMenuFile {
     //Finder det valgte tal fra PizzaMenu.txt og sender en String med den valgte Pizza.
         public static String findAndAddToOrder() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
-
-            System.out.println("Skriv nummer på pizza! (#nummer.)");
-            int inputPizzaInt = UserInput.inputInt(1, 14, "Skriv nr. mellem 1-14");
+            
+            int inputPizzaInt = UserInput.inputInt(1, 14, "Skriv nr. på en pizza!");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
