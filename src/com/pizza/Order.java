@@ -74,7 +74,7 @@ public class Order implements Comparable<Order> {
     public String findPizzaNumber() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
-            pizzaNumber += getOrder().get(i).substring(1,3);
+            pizzaNumber += getOrder().get(i).substring(1,3) + ", ";
 
         }
         return pizzaNumber;
@@ -83,7 +83,7 @@ public class Order implements Comparable<Order> {
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
-        return timeInt + "<---Order{" + "Pizzas: ( " + pizzaNumber + " ), orderID: #" + orderID + ", time: " + time + '}';
+        return timeInt + "<---Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}';
     }
 
 
@@ -100,8 +100,5 @@ public class Order implements Comparable<Order> {
         int timeInt = Integer.parseInt(timeFixed);
         return timeInt;
     }
-
-
-
-
+    
 }
