@@ -12,7 +12,6 @@ class UserInputTest {
 
     @Test
     void testInputInt() {
-
         int number;
         int testUserInput = 12;
         while (testUserInput != (int)testUserInput) {
