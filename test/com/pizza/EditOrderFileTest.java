@@ -42,13 +42,10 @@ class EditOrderFileTest {
     @Test
     void confirmOrderSold() throws IOException {
         File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
-        FileWriter fw = new FileWriter(PitzHistoric,true);
         Order order = new Order(123,"15:14",1514);
         double length = PitzHistoric.length();
 
-        fw.write(order.toString());
-        fw.write("\n");
-        fw.close();
+        EditOrderFile.confirmOrderSold(order);
 
         double length2 = PitzHistoric.length();
         assertNotEquals(length,length2);
