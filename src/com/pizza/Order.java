@@ -21,14 +21,20 @@ public class Order implements Comparable<Order> {
         this.orderID = orderID;
     }
 
-    Order(int orderID, String time, int timeInt) {
+    Order(int orderID, String time, int timeInt){
         this.timeInt = timeInt;
         this.orderID = orderID;
         this.time = time;
     }
 
-    public Order(ArrayList<String> pizza1, int orderID, String time, int timeInt) {
+    Order(ArrayList<String> order, int orderID, String time, int timeInt) {
+        this.order=order;
+        this.timeInt = timeInt;
+        this.orderID = orderID;
+        this.time = time;
     }
+
+
 
     public int getTimeInt() {
         return this.timeInt;
