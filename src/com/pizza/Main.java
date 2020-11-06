@@ -40,7 +40,7 @@ public class Main {
         String headertext = timeClass.displayTime() + "\nOrder Menu:";
         String leadtext = "Vaelg en mulighed: ";
         String[] menuitems = {"1. Add new order", "2. Display active orders", "3. Delete order",
-                "4. Confirm order sold","Yayeet", "9. Exit program"};
+                "4. Confirm order sold","5. Edit order", "9. Exit program"};
 
 
         while (run){
@@ -83,7 +83,10 @@ public class Main {
                     mariosActiveOrders.indexDisplayActiveOrders();
                     break;
                 case 5:
-                    System.out.println("yAyEEt");
+                    System.out.println("Vælg ordre der skal rettes: ");
+                    mariosActiveOrders.indexDisplayActiveOrders();
+                    int indexEdit = (UserInput.inputInt("Input index number of order to edit: ") -1);
+                    testEO.editOrder(indexEdit);
 
                     break;
                 case 9:
