@@ -79,7 +79,8 @@ public class Main {
                     mariosActiveOrders.printSelectedOrderFromList(index);
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
                     mariosActiveOrders.removeOrderFromList(index);
-                    mariosActiveOrders.displayActiveOrders("Active orders: ");
+                    System.out.println("\nRemaining active orders:");
+                    mariosActiveOrders.indexDisplayActiveOrders();
                     break;
                 case 5:
                     System.out.println("yAyEEt");

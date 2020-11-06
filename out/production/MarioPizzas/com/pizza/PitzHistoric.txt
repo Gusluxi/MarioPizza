@@ -127,3 +127,6 @@ Order{order = , orderID = 186, time = '10:41'}
 1145<---Order{Pizzas: ( ), orderID: #418, time: 11:45}
 945<---Order{Pizzas: ( ), orderID: #429, time: 09:45}
 1215<---Order{Pizzas: (  ), orderID: #554, time: 12:15}
+Order{Pizzas: ( ), orderID: #643, time: 09:45}
+Order{Pizzas: ( ), orderID: #645, time: 12:15}
+Order{Pizzas: ( ), orderID: #647, time: 11:45}
