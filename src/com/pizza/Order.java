@@ -14,8 +14,7 @@ public class Order implements Comparable<Order> {
     private ArrayList<String> order = new ArrayList<>();
     private int orderID;
 
-    Order() {
-    }
+    Order() {}
 
     Order(int orderID) {
         this.orderID = orderID;
@@ -33,8 +32,6 @@ public class Order implements Comparable<Order> {
         this.orderID = orderID;
         this.time = time;
     }
-
-
 
     public int getTimeInt() {
         return this.timeInt;
@@ -76,7 +73,9 @@ public class Order implements Comparable<Order> {
         order.add(pizzaName);
     }
 
-    void removePizzaFromOrder(String pizzaName) {order.remove(pizzaName);}
+    void removePizzaFromOrder(String pizzaName) {
+        order.remove(pizzaName);
+    }
 
     
     //Metode navnet siger det

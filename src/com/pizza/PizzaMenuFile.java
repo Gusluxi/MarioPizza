@@ -7,11 +7,12 @@ import java.util.Scanner;
 public class PizzaMenuFile {
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static File menuTextFile2 = new File("src\\com\\pizza\\PizzaMenu2.txt");
+    //static Scanner menuList = new Scanner(menuTextFile);
 
     //Finder det valgte tal fra PizzaMenu.txt og sender en String med den valgte Pizza.
         public static String findAndAddToOrder() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
-            
+
             int inputPizzaInt = UserInput.inputInt(1, 14, "Skriv nr. på en pizza!");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
@@ -23,6 +24,22 @@ public class PizzaMenuFile {
                 }
             }
             return "Error - Kan ikke finde MenuFilen!";
+        }
+
+        public static String findAndDeleteFromOrder() throws FileNotFoundException {
+            Scanner menuList = new Scanner(menuTextFile);
+
+            int inputPizzaInt = UserInput.inputInt(1,14,"Skriv nr på pizzaen som skal slettes");
+            String inputPizzaString = Integer.toString(inputPizzaInt);
+            inputPizzaString += ".";
+
+            while (menuList.hasNextLine()){
+                String lineFromText = menuList.nextLine();
+                if (lineFromText.contains(inputPizzaString)){
+                    return lineFromText;
+                }
+            }
+            return "Jeg laver det her mens jeg er træt";
         }
 
         //Scanner Menuen og printer den..
