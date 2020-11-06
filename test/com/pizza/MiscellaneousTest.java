@@ -16,14 +16,6 @@ class MiscellaneousTest {
         Scanner iDFileScan = new Scanner(new File("src\\com\\pizza\\OrderID.txt"));
         String stringID = iDFileScan.nextLine();
         int intID = Integer.parseInt(stringID);
-        assertEquals(559,intID);
-    }
-
-    @Test
-    void generateOrderID() {
-    }
-
-    @Test
-    void newOrderID() {
+        assertEquals(559, intID);
     }
 }
