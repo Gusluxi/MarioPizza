@@ -17,6 +17,7 @@ public class EditOrderFile {
 
     //Vi starter en ny ordre ved at oprette et order-objekt.
     //Vi beder om input omkring ordren og assigner attributer til dem til sidst.
+
     void startNewOrder() throws FileNotFoundException {
         Order order = new Order();
         TimeClass timeClass = new TimeClass();
@@ -53,7 +54,7 @@ public class EditOrderFile {
         }
     }
 
-    void editOrder(int editChosenOrder,Order order) throws FileNotFoundException {
+    void editOrder(int indexEdit) throws FileNotFoundException {
 
         boolean start = true;
         while (start) {
@@ -61,27 +62,20 @@ public class EditOrderFile {
 
             int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer til ordren " +
                     "\n2. for at slette en pizza fra ordren");
-
-            if (input == 1) {
-                mariosActiveOrders.getActiveOrders().get(editChosenOrder).addPizzaToOrder(PizzaMenuFile.findAndAddToOrder());
-                System.out.println("Den nye ordre: " + mariosActiveOrders.getActiveOrders().get(editChosenOrder));
-
-
-                //Find ud af, om der skal bestilles flere pizzaer:
-                int inputTilføjEllerStopEdit = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
-                        "\n2. for at gemme den nye ordre");
-
-
-                if (inputTilføjEllerStopEdit == 2) {
-                    System.out.println("Ordren ser nu således ud: \n" + mariosActiveOrders.getActiveOrders().get(editChosenOrder));
-
-                    start = false;
-                }
+            if (input==1) {
+                //Ordren mariosActiveOrders.getActiveOrders().get(indexEdit);
+                addPizzaToOrder(mariosActiveOrders.getActiveOrders().get(indexEdit));
             }
-            editOrderTime(editChosenOrder);
+
+            if (input == 2) {
+                mariosActiveOrders.removeOrderFromList(indexEdit);
+                }
+            start = false;
         }
-        start = false;
-    }
+            editOrderTime(indexEdit);
+        }
+
+
 
     void editOrderTime(int editChosenOrder) {
         TimeClass timeClass = new TimeClass();
