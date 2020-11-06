@@ -88,7 +88,7 @@ public class Order implements Comparable<Order> {
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
-        return timeInt + "<---Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}';
+        return "Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}'; //tilføj evt. " timeInt + "<--- " foran Order for at se tids-atribut
     }
 
 

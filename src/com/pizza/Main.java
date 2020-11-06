@@ -54,7 +54,9 @@ public class Main {
                     testEO.startNewOrder();
                     break;
                 case 2:
-                    mariosActiveOrders.displayActiveOrders("2. Active orders: ");
+                    System.out.println("2. Active orders: ");
+                    mariosActiveOrders.indexDisplayActiveOrders();
+                    //mariosActiveOrders.displayActiveOrders("2. Active orders: "); Hvis vi vil se "hemmelig" tids-atribut (timeInt), som kan printes i toString under Order-class
                     break;
                 case 3:
                     System.out.println("3. Delete order:");
