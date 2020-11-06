@@ -11,10 +11,6 @@ public class TimeClass {
         return currentRealTime;
     }
 
-    void displayInputTime(String time){
-        System.out.println(time);
-    }
-
     String setTimeOfTheDay(int hours, int min) {
         LocalTime setTime = LocalTime.of(hours,min);
         String timeTest = setTime.toString();
