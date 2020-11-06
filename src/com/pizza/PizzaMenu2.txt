@@ -1,10 +1,18 @@
 Pizza Menu
-#01. Vesuvio: tomatsauce, ost, skinke og oregano .............................. 57 DKK    #08. Victoria: tomatsauce, ost, skinke, ananas, champignon, løg og oregano..... 61 DKK
-#02. Amerikaner: tomatsauce, ost, oksefars og oregano ......................... 53 DKK    #09. Toronfo: tomatsauce, ost, skinke, bacon, kebab, chili og oregano.......... 61 DKK
-#03. Cacciatore: tomatsauce, ost, pepperoni og oregano ........................ 57 DKK    #10. Capricciosa: tomatsauce, ost, skinke, champignon og oregano............... 61 DKK
-#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano.. 63 DKK    #11. Hawaii: tomatsauce, ost, skinke, ananas og oregano........................ 61 DKK
-#05. Dennis: tomatsauce, ost, skinke, pepperoni, cocktailpølser og oregano..... 65 DKK    #12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano.................... 61 DKK
-#06. Bertil: tomatsauce, ost, bacon og oregano................................. 57 DKK    #13. Venezia: tomatsauce, ost, skinke, bacon og oregano........................ 61 DKK
-#07. Silvia: tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano..... 61 DKK    #14. Mafia: tomatsauce, ost, pepperoni, bacon, løg og oregano.................. 61 DKK
-
-
+#01. Vesuvio: tomatsauce, ost, skinke og oregano ................................. 57 kr.     #18. Torino: tomatsauce, ost, pepperoni, champignon, gorgonzola, oliven........... 63 kr.
+#02. Amerikaner: tomatsauce, ost, oksefars og oregano ............................ 53 kr.     #19. Danmark: tomatsauce, ost, skinke, bacon, pepperoni, salat & dressing......... 63 kr.
+#03. Cacciatore: tomatsauce, ost, pepperoni og oregano ........................... 57 kr.     #20. Kebab: tomatsauce, ost, shawarma, salat & dressing........................... 57 kr.
+#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano..... 63 kr.     #21. Spinato: tomatsauce, ost, spinat, gorgonzola, køstrimler..................... 61 kr.
+#05. Dennis: tomatsauce, ost, skinke, pepperoni, cocktailpølser og oregano........ 65 kr.     #22. Marinara: tomatsauce, ost, tun, rejer........................................ 57 kr.
+#06. Bertil: tomatsauce, ost, bacon og oregano.................................... 57 kr.     #23. Matador: tomatsauce, ost, oksekød, champignon, løg, bernaisesauce............ 63 kr.
+#07. Silvia: tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano........ 61 kr.     #24. Mix: tomatsauce, ost, skinke, pepperoni, bacon, paprika, løg, champignon..... 65 kr.
+#08. Victoria: tomatsauce, ost, skinke, ananas, champignon, løg og oregano........ 61 kr.     #25. Esperanto: tomatsauce, ost, shawarma, løg, gorgonzola........................ 61 kr.
+#09. Toronfo: tomatsauce, ost, skinke, bacon, kebab, chili og oregano............. 61 kr.     #26. Afrodite: tomatsauce, ost, kartoffler, rucola, friske tomater, pesto......... 61 kr.
+#10. Capricciosa: tomatsauce, ost, skinke, champignon og oregano.................. 61 kr.     #27. Mexicano: tomatsauce, ost, kødstrimler, champignon, jalapenos................ 63 kr.
+#11. Hawaii: tomatsauce, ost, skinke, ananas og oregano........................... 57 kr.     #28. Amigo: tomatsauce, ost, hakket oksekød, chili, jalapenos, hvidløg............ 63 kr.
+#12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano....................... 61 kr.     #39. Acapluco: tomatsauce, ost, skinke, pepperoni, gorgonzola, jalapenos.......... 63 kr.
+#13. Venezia: tomatsauce, ost, skinke, bacon og oregano........................... 61 kr.     #30. Azteka: tomatsauce, ost, kylling, bacon, jalapenos........................... 63 kr.
+#14. Mafia: tomatsauce, ost, pepperoni, bacon, løg og oregano..................... 61 kr.     #31. Pesto: tomatsauce, ost, fetaost, frisk tomat, pesto, rucola.................. 61 kr.
+#15. Parma: tomatsauce, ost, lufttørret skinke, gorgonzola........................ 61 kr.     #32. Aubergine: tomatsauce, ost, aubergine, friske tomater, kylling, pesto........ 63 kr.
+#16. Kylling: tomatsauce, ost, kylling, majs, paprika, løg........................ 63 kr.     #33. Chorinzo: tomatsauce, ost, chorinzo, rucola, pestodressing................... 63 kr.
+#17. La Conta: tomatsauce, ost, bacon, pepperoni, hakket oksefars................. 63 kr.     #34. Vegetar: tomatsauce, ost, champignon, arktiskok, løg, oliven, paprika........ 63 kr.

@@ -10,10 +10,10 @@ public class PizzaMenuFile {
     //static Scanner menuList = new Scanner(menuTextFile);
 
     //Finder det valgte tal fra PizzaMenu.txt og sender en String med den valgte Pizza.
-        public static String findAndAddToOrder() throws FileNotFoundException {
+        public static String findAndReturnPizza() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
-            int inputPizzaInt = UserInput.inputInt(1, 14, "Skriv nr. på en pizza!");
+            int inputPizzaInt = UserInput.inputInt(1, 34, "Skriv nr. på en pizza!");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
@@ -29,7 +29,7 @@ public class PizzaMenuFile {
         public static String findAndDeleteFromOrder() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
-            int inputPizzaInt = UserInput.inputInt(1,14,"Skriv nr. på den pizza som skal slettes:");
+            int inputPizzaInt = UserInput.inputInt(1,34,"Skriv nr. på den pizza som skal slettes:");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
@@ -56,8 +56,6 @@ public class PizzaMenuFile {
         while (menuList.hasNextLine())
             System.out.println(menuList.nextLine());
     }
-
-
 }
 
 

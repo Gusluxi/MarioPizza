@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PizzaMenuFileTest {
 
     @Test
-    void findAndAddToOrder() {
+    void findAndReturnPizza() {
         int inputPizzaInt = 12;
         String inputPizzaString = Integer.toString(inputPizzaInt);
         inputPizzaString += ".";
