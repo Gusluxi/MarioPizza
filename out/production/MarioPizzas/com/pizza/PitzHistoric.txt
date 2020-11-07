@@ -140,3 +140,4 @@ Order{Pizzas: ( ), orderID: #123, time: 15:14}
 Order{Pizzas: ( ), orderID: #123, time: 15:14}
 Order{Pizzas: ( ), orderID: #656, time: 09:45}
 Order{Pizzas: ( ), orderID: #123, time: 15:14}
+Order nr. #816Afhentningstid:09:45 Pizza nr. (01, 04, 08, 12, )
