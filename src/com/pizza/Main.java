@@ -104,6 +104,7 @@ public class Main {
                     break;
                 case 6:
                     PizzaMenuFile.printPizzaMenu2();
+                    break;
                 case 9:
                     System.out.println("Afslutter program...");
                     run = false;
