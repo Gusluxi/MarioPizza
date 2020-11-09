@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class TimeClass {
     static String currentRealTime = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm"));
+    static UserInput userInput = new UserInput();
 
     /**
      * @return a formatted String of the current time in (Hours:minutes)
@@ -44,9 +45,11 @@ public class TimeClass {
      */
     public void askForTime(Order order){
         //Ask for input, then assign value to timer
-        int timeHourSat = UserInput.inputInt(0,23,"Skriv en bestemt time:");
-        int timeMinSat = UserInput.inputInt(0,59,"Skriv en bestemt minute:");
+        userInput.inputTimeInt("Skriv en tid i timer og minutter: ");
+        int timeHourSat = userInput.getHour();
+        int timeMinSat = userInput.getMinute();
 
+        System.out.println("Tid sat til kl. " + timeHourSat + ":" + timeMinSat);
         //Assigning values order
         order.setTime(setTimeOfTheDay(timeHourSat, timeMinSat));
         order.setTimeInt(order.convertTimetoTimeInt(order));

@@ -47,11 +47,11 @@ public class Main {
         mariosActiveOrders.addOrderToActiveOrders(order3);
         mariosActiveOrders.addOrderToActiveOrders(order4);
 
-        mariosActiveOrders.indexDisplayActiveOrders("Aktive ordrer:");
+        mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
 
         boolean run = true;
         int choice;
-        String headertext = timeClass.displayTime() + "\nMario's Pizza Menu:";
+        String headertext = "Mario's Pizza  -  kl. " + timeClass.displayTime();
         String leadtext = "Vælg en mulighed: ";
         String[] menuitems = {"1. Ny order.", "2. Vis aktive ordrer.", "3. Gem en betalt order.",
                 "4. Slet en order.","5. Rediger en order.","6. Vis Pizza Menukort", "9. Afslut program"};
@@ -64,19 +64,19 @@ public class Main {
             switch (choice){
                 case 1:
                     System.out.println("1. Add new order.");
-
                     testEO.startNewOrder();
                     break;
                 case 2:
-                    System.out.println("2. Viser alle aktive ordrer.");
-                    mariosActiveOrders.indexDisplayActiveOrders("Aktive ordrer:");
+                    System.out.println("2. Viser alle aktive ordrer.\n");
+                    mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
                     //mariosActiveOrders.displayActiveOrders("2. Active orders: "); Hvis vi vil se "hemmelig" tids-atribut (timeInt), som kan printes i toString under Order-class
                     break;
                 case 3:
-                    System.out.println("3. Gem en betalt order.");
-
-                    mariosActiveOrders.indexDisplayActiveOrders("Aktive ordrer:");
-                    int index = (UserInput.inputInt("Input index number of order to save: ") -1); //giver den første, når han skriver 1. (istedet for 0)
+                    System.out.println("3. Gem en betalt order.\n");
+                    mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
+                    int index = (UserInput.inputInt("Skriv #index af order der skal gemmes:") -1); //giver den første, når han skriver 1. (istedet for 0)
+                    if (index == -1)
+                        break;
                     System.out.print("GEMMER ORDER: #" + index+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(index);
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
@@ -84,23 +84,21 @@ public class Main {
                     mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
                     break;
                 case 4:
-                    System.out.println("4. Slet en order.");
+                    System.out.println("4. Slet en order.\n");
 
-                    mariosActiveOrders.indexDisplayActiveOrders("Aktive ordrer:");
-                    int indexDel = (UserInput.inputInt("Input index number of order to delete: ") - 1);
+                    mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
+                    int indexDel = (UserInput.inputInt("Skriv #index af order der skal slettes:") - 1);
+                    if (indexDel == -1)
+                        break;
                     System.out.print("SLETTER ORDER: #" + indexDel+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
                     mariosActiveOrders.removeOrderFromList(indexDel);
-                    System.out.println("\nRemaining active orders:");
                     mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
-
                     break;
-
                 case 5:
-                    mariosActiveOrders.indexDisplayActiveOrders("Aktive ordrer:");
+                    mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
                     int indexEdit = (UserInput.inputInt("Input index number of order to edit: ") -1);
                     testEO.editOrder(indexEdit);
-
                     break;
                 case 6:
                     PizzaMenuFile.printPizzaMenu2();
