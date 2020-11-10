@@ -1,16 +1,17 @@
 package com.pizza;
 
-import java.io.*;
-import java.time.LocalTime;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-
+//Arraylist, Collections, List, Scanner, File, IOException, FileWriter, PrintWriter
 
 public class Order implements Comparable<Order> {
-    static File PitzHistoric2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
-    static LocalTime localTime = LocalTime.now();
+    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
 
     private String time;
     private int timeInt;
@@ -44,20 +45,12 @@ public class Order implements Comparable<Order> {
         this.timeInt = timeInt;
     }
 
-    public static void setLocalTime(LocalTime localTime) {
-        Order.localTime = localTime;
-    }
-
     public String getTime() {
         return time;
     }
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public int getOrderID() {
-        return orderID;
     }
 
     public void setOrderID(int orderID) {
@@ -125,8 +118,8 @@ public class Order implements Comparable<Order> {
         }
 
 
-       //Changes how Collections.sort works on our Order-objects.
-       //It now sorts by a "semi-hidden" attribute called timeInt
+    //Changes how Collections.sort works on our Order-objects.
+    //It now sorts by a "semi-hidden" attribute called timeInt
     @Override
     public int compareTo(Order order) {
         int compare = order.getTimeInt();
@@ -149,7 +142,7 @@ public class Order implements Comparable<Order> {
     //Used to sort information stored in our file for completed purchases.
     void sortFileAlphabetically() throws IOException {
 
-        Scanner readFile = new Scanner(PitzHistoric2);
+        Scanner readFile = new Scanner(soldPizzas2);
 
         String inputLine;
         List<String> lineList = new ArrayList<>();
@@ -160,7 +153,7 @@ public class Order implements Comparable<Order> {
 
         Collections.sort(lineList);
 
-        FileWriter fileWriter = new FileWriter(PitzHistoric2);
+        FileWriter fileWriter = new FileWriter(soldPizzas2);
         PrintWriter out = new PrintWriter(fileWriter);
         for (String outputLine : lineList) {
             out.println(outputLine);
