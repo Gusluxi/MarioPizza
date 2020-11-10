@@ -2,27 +2,32 @@ package com.pizza;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Statistic {
-    private final String FILENAME = "src\\com\\pizza\\PitzHistoric.txt";
+    private final String FILENAME = "src\\com\\pizza\\PitzHistoric2.txt";
 
-    void readFileTest() throws FileNotFoundException {
+
+    void readStats() throws FileNotFoundException {
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+
         Scanner scanFile = new Scanner(new File(FILENAME));
-        int var=0;
-        System.out.println("TEST");
-            while (scanFile.hasNext()) {
-                String nextWord = scanFile.next();
-                if (nextWord.contains("01,")) {
-                    System.out.println("Fundet!");
-                    var++;
-
-
-                }
+        while (scanFile.hasNext()) {
+            String word = scanFile.next();
+            if ( map.containsKey(word)) {
+                int count = map.get(word) + 1;
+                map.put(word, count);
+            } else {
+                map.put(word, 1);
             }
+        }
 
-        System.out.println(var);
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry);
+        }
     }
-}
 
+
+}

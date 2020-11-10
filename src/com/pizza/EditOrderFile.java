@@ -11,6 +11,7 @@ import java.io.IOException;
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
+    static File PitzHistoric2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
     static Miscellaneous testMisc = new Miscellaneous();
     static TimeClass timeClass = new TimeClass();
     static Order order = new Order();
@@ -154,16 +155,19 @@ public class EditOrderFile {
     }
 
     //Vi skriver en Order ind i en textfil, så vi gemmer solgte ordre.
-    public static void confirmOrderSold(Object order) throws IOException {
+    public static void confirmOrderSold(Order order) throws IOException {
         FileWriter fw = new FileWriter(PitzHistoric,true);
         fw.write(order.toString());
         fw.write("\n");
         fw.close();
+        sendToStats(order);
+    }
+
+    public static void sendToStats(Order order) throws IOException {
+        FileWriter fw = new FileWriter(PitzHistoric2,true);
+        fw.write(order.statsToString());
+        fw.write("\n");
+        fw.close();
+
     }
  }
-
- /*
-    void deleteActiveOrder(int indexInput){
-        mariosActiveOrders.removeOrderFromList(indexInput);
-    }
- */

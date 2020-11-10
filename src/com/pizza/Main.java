@@ -25,6 +25,7 @@ public class Main {
         EditOrderFile testEO = new EditOrderFile();
         Miscellaneous testMisc = new Miscellaneous();
         TimeClass timeClass = new TimeClass();
+        Statistic stats = new Statistic();
 
         String nr1 = "#01. Vesuvio: tomatsauce, ost, skinke og oregano ................................. 57 kr.";
         String nr4 = "#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano..... 63 kr.";
@@ -46,10 +47,6 @@ public class Main {
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
         mariosActiveOrders.addOrderToActiveOrders(order4);
-
-        Statistic stats = new Statistic();
-
-
 
 
         mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
@@ -107,7 +104,7 @@ public class Main {
                     PizzaMenuFile.printPizzaMenu2();
                     break;
                 case 7:
-                    stats.readFileTest();
+                    stats.readStats();
                     break;
                 case 9:
                     System.out.println("Afslutter program...");

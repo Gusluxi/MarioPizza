@@ -97,12 +97,27 @@ public class Order implements Comparable<Order> {
         return pizzaNumber;
     }
 
+    public String findPizzaNumber2() {
+        String pizzaNumber = "";
+        for (int i = 0; i < order.size(); i++) {
+            pizzaNumber += getOrder().get(i).substring(1, 3) + " ";
+
+        }
+        return pizzaNumber;
+    }
+
+
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
         return "Order: #" + orderID + " - Afhentning kl. " + time + " - Pizza nr. ( " + pizzaNumber + ")";
         //return "Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}'; //tilføj evt. " timeInt + "<--- " foran Order for at se tids-atribut
     }
+
+    public String statsToString() {
+        String pizzaNumber2 = findPizzaNumber2();
+        return pizzaNumber2 ;
+        }
 
 
     @Override //vigtig metode til at sortere vores Ordrer efter tids-elementet i dem. Bruges i sortByAttribute()
