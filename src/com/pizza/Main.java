@@ -10,7 +10,7 @@ import static com.pizza.PizzaMenuFile.*;
 public class Main {
 
     static Scanner menuList;
-    {
+    static {
         try {
             menuList = new Scanner(menuTextFile);
         } catch (FileNotFoundException e) {
