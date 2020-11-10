@@ -8,7 +8,8 @@ import java.io.*;
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
     static File soldPizzas = new File("src\\com\\pizza\\PitzHistoric.txt");
-    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
+    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoricNr.txt");
+    static File soldPizzas3 = new File("src\\com\\pizza\\PitzHistoricPrice.txt");
     static Miscellaneous miscellaneous = new Miscellaneous();
     static TimeClass timeClass = new TimeClass();
 
@@ -156,21 +157,30 @@ public class EditOrderFile {
     public static void confirmOrderSold(Order order) throws IOException {
         FileWriter fw = new FileWriter(soldPizzas,true);
         fw.write(order.toString());
+        fw.write("\nTotal: " + order.findTotalPizzaPrice() + " kr.");
         fw.write("\n");
         fw.close();
 
         sendToStats(order);
+        sendToStats2(order);
 
     }
 
-    //When an order is confirmed, the purchase is stored in another file for recordkeeping.
+    //When an order is confirmed, the stats of pizzas sold is stored in another file for record keeping.
     public static void sendToStats(Order order) throws IOException {
         FileWriter fw = new FileWriter(soldPizzas2,true);
-        fw.write(order.statsToString());
+        fw.write(order.pizzaNumberToString());
         fw.write("\n");
         fw.close();
 
         order.sortFileAlphabetically();
+    }
+    //When an order is confirmed, the total cost is stored in another file for record keepint.
+    public static void sendToStats2(Order order) throws IOException {
+        FileWriter fw = new FileWriter(soldPizzas3,true);
+        fw.write(order.priceStatsToString());
+        fw.write("\n");
+        fw.close();
 
     }
 

@@ -38,6 +38,15 @@ public class ActiveOrders {
 
         }
     }
+    void indexPriceDisplayActiveOrders(String msgToUser){
+        System.out.println(msgToUser);
+        sortByAttribute();
+        for (int i = 0; i < activeOrders.size(); i++) {
+            String clas = Integer.toString(i+1);
+            System.out.println("#" + clas + "  " + activeOrders.get(i).toStringWithPrice());
+
+        }
+    }
 
     //Used to sort orders by attribute. (Comparator used in case we need to sort by more than one thing
     void sortByAttribute(){

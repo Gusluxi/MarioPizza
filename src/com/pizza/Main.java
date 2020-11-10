@@ -18,7 +18,6 @@ public class Main {
         }
     }
 
-
     void run() throws IOException { // MENU
         //Variables and instances of classes
         EditOrderFile editOrderFile = new EditOrderFile();
@@ -35,9 +34,8 @@ public class Main {
         int choice;
         String headertext = "Mario's Pizza  -  kl. " + timeClass.displayTime();
         String leadtext = "Vælg en mulighed: ";
-        String[] menuitems = {"1. Ny order.", "2. Vis aktive ordrer.", "3. Gem en betalt order.",
-                "4. Slet en order.","5. Rediger en order.","6. Vis Pizza Menukort","7. Vis Statestik over solgte pizzaer.", "9. Afslut program"};
-
+        String[] menuitems = {"1. Ny order.", "2. Vis aktive ordrer m. pris.", "3. Gem en betalt order.",
+                "4. Slet en order.","5. Rediger en order.","6. Vis Pizza Menukort.","7. Vis Statestik over solgte pizzaer.", "9. Afslut program."};
 
         while (run){
             Menu menu = new Menu(headertext,leadtext,menuitems);
@@ -50,7 +48,7 @@ public class Main {
                     break;
                 case 2: //Displays orders
                     System.out.println("2. Viser alle aktive ordrer.\n");
-                    mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
+                    mariosActiveOrders.indexPriceDisplayActiveOrders("AKTIVE ORDRER:");
                     break;
                 case 3: //Saves an order in a file for record-keeping.
                     System.out.println("3. Gem en betalt order.\n");
@@ -87,7 +85,8 @@ public class Main {
                     PizzaMenuFile.printPizzaMenu2();
                     break;
                 case 7: //Prints the statistics of former purchases.
-                    stats.readStats();
+                    stats.readStatsPizzaNumber();
+                    stats.readStatsTotalPrice();
                     break;
                 case 9: //Terminates program (if needed).
                     System.out.println("Afslutter program...");

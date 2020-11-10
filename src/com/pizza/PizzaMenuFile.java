@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class PizzaMenuFile {
     static File menuTextFile = new File("src\\com\\pizza\\PizzaMenu.txt");
     static File menuTextFile2 = new File("src\\com\\pizza\\PizzaMenu2.txt");
-    
+
 
     //Finds the Chosen number from PizzaMenu.txt and sends a String with the chosen pizza.
         public static String findPizzaInMenu() throws FileNotFoundException {

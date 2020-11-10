@@ -11,7 +11,7 @@ import java.util.Scanner;
 //Arraylist, Collections, List, Scanner, File, IOException, FileWriter, PrintWriter
 
 public class Order implements Comparable<Order> {
-    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
+    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoricNr.txt");
 
     private String time;
     private int timeInt;
@@ -94,7 +94,7 @@ public class Order implements Comparable<Order> {
     }
 
     //Used solely in statistics, does the same as the method above.
-    public String findPizzaNumber2() {
+    public String findPizzaNumberForStats() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
             pizzaNumber += getOrder().get(i).substring(1, 3) + " ";
@@ -103,19 +103,42 @@ public class Order implements Comparable<Order> {
         return pizzaNumber;
     }
 
-    //toString...
+    //Convert price from each pizza to int and calculate total price.
+    public int findTotalPizzaPrice() {
+        String pizzaPrice = "";
+        int totalCost = 0;
+        for (int i = 0; i < order.size(); i++) {
+            pizzaPrice = getOrder().get(i).substring(83, 85);
+            totalCost += Integer.parseInt(pizzaPrice);
+        }
+        return totalCost;
+    }
+
+    //toString override...
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
-        return "Order: #" + orderID + " - Afhentning kl. " + time + " - Pizza nr. ( " + pizzaNumber + ")";
-        //return "Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}'; //tilføj evt. " timeInt + "<--- " foran Order for at se tids-atribut
+        return "Order: #" + orderID + " - Afhentning kl. " + time + " - Pizza nr. ( " + pizzaNumber + ") ";
+    }
+    //toString med pris...
+    public String toStringWithPrice() {
+        String pizzaNumber = findPizzaNumber();
+        int totalPrice = findTotalPizzaPrice();
+        return "Order: #" + orderID + " - Afhentning kl. " + time + " - TOTAL " + totalPrice + ".00 kr. - Pizza nr. ( " + pizzaNumber + ") ";
     }
 
-    //toString for statistics.
-    public String statsToString() {
-        String pizzaNumber2 = findPizzaNumber2();
+    //toString for statistics (pizza nr.).
+    public String pizzaNumberToString() {
+        String pizzaNumber2 = findPizzaNumberForStats();
         return pizzaNumber2 ;
-        }
+    }
+
+    //toString for statistics (price).
+    public String priceStatsToString() {
+        int priceInt = findTotalPizzaPrice();
+        String priceString = Integer.toString(priceInt);
+        return priceString;
+    }
 
 
     //Changes how Collections.sort works on our Order-objects.
@@ -162,7 +185,4 @@ public class Order implements Comparable<Order> {
         out.close();
         fileWriter.close();
     }
-
-
-
 }
