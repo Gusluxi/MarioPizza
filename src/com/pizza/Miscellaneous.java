@@ -18,7 +18,7 @@ public class Miscellaneous {
         this.currentOrderID = currentOrderID;
     }
 
-    //Denne metode læser en fil og returner tallet i filen.
+    //This metheod reads a file, and returns the number from the file
     int readOrderID() {
         try {
             Scanner iDFileScan = new Scanner(new File(FILENAME));
@@ -33,7 +33,7 @@ public class Miscellaneous {
         return -1;
     }
 
-    //Denne metode henter et integer fra ovenstående metode, plusser med 1, og setter IDet til ordren + noterer det i filen
+    //This metheod gets a integer from setCurrentOrderID, plusses ID with 1, and sets ID for the order + notes it in the OrderID.txt
     int newOrderID() throws FileNotFoundException {
         int countID = readOrderID();
         countID ++;
