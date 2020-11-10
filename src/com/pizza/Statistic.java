@@ -25,7 +25,7 @@ public class Statistic {
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println("nr. #" + entry + " købt");
+            System.out.println("nr. #" + entry + " pizzaer solgt.");
         }
     }
 
@@ -36,7 +36,7 @@ public class Statistic {
             String singlePriceString = scanFile.next();
             totalPriceInt += Integer.parseInt(singlePriceString);
         }
-        System.out.printf("\nOmsætning = %,d kr.\n", totalPriceInt);
+        System.out.printf("\nOmsaetning = %,d kr.\n", totalPriceInt);
     }
 }
 

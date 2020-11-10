@@ -19,13 +19,13 @@ public class EditOrderFile {
     void startNewOrder() throws FileNotFoundException {
         boolean runMenu = true;
         Order order = new Order();
-        String[] menuitems = {"1. Tilføj pizzaer til en ny order", "2. Vis Pizza Menukort",
+        String[] menuitems = {"1. Indtast pizzaer til en ny order", "2. Vis Pizza Menukort",
                 "3. Vis aktive ordrer", "4. for at retunerer til hovedmenu."};
 
         while (runMenu) {
             Menu menu = new Menu("Ny order menu:", "1,2 eller 3:", menuitems);
             menu.printMenu();
-            int input = UserInput.inputInt("Vælg ");
+            int input = UserInput.inputInt("Indtast en valgmulighed: ");
             switch (input) {
                 case 1:
                     //ADD PIZZA TO ORDER
@@ -55,7 +55,7 @@ public class EditOrderFile {
                     runMenu = false;
                     break;
                 default:
-                    System.out.println("Vælg 1. for ny order eller 4. for at annullere");
+                    System.out.println("Tast 1. for ny order eller 4. for at annullere");
             }
         }
     }
@@ -68,8 +68,8 @@ public class EditOrderFile {
             order.displayCurrentOrder("Nye ordrer:");
 
             //Press 1 for more pizzas, 2 to save order.
-            int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
-                    "\n2. for at gemme ordren");
+            int input = UserInput.inputInt(1, 2, "\n1. for at indtaste flere pizzaer " +
+                    "\n2. for at gemme ordren til aktive ordrer");
             if (input == 2) {
                 start = false;
             }
@@ -91,13 +91,13 @@ public class EditOrderFile {
 
                 if (order.getOrder().size() == 1 || order.getOrder().size() == 0) {
                     input = UserInput.inputInt(1, 2, "\n1. for at slette den sidste pizza og hele ordren " +
-                            "\n2. for at gemme resten af ordren");
+                            "\n2. for at gemme resten af ordren til aktive ordrer ");
                     if (input == 1 || order.getOrder().size() == 0)
                         mariosActiveOrders.removeOrderFromList(indexEdit);
                     input = 2;
                 } else if (order.getOrder().size() != 1) {
                     input = UserInput.inputInt(1, 2, "\n1. for at slette flere pizzaer " +
-                            "\n2. for at gemme ordren");
+                            "\n2. for at gemme ordren til aktive ordrer ");
                 }
             }
         }
@@ -106,19 +106,19 @@ public class EditOrderFile {
     void editOrderTime(int indexEdit) {
         TimeClass timeClass = new TimeClass();
 
-        System.out.println("\nSkal tidspunktet for pickup ændres?");
+        System.out.println("\nSkal tidspunktet for afhentningen redigeres?");
 
         boolean start = true;
         while (start) {
 
-            int inputChangePickUpTime = UserInput.inputInt(1, 2, "1. Ændre pickup-tidspunkt " +
-                    "\n2. Behold nuværende pickup-tidspunkt (" +
-                    mariosActiveOrders.getActiveOrders().get(indexEdit).getTime() + ")");
+            int inputChangePickUpTime = UserInput.inputInt(1, 2, "1. Rediger afhentnings-tidspunkt " +
+                    "\n2. Behold afhentnings-tidspunktet: (" +
+                    mariosActiveOrders.getActiveOrders().get(indexEdit).getTime() + ") ");
 
             if (inputChangePickUpTime == 1) {
                 timeClass.askForTime(mariosActiveOrders.getActiveOrders().get(indexEdit));
             } else {
-                System.out.println("Ordren ser nu således ud: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
+                System.out.println("Den redigeret order: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
             }
             start = false;
         }
@@ -127,13 +127,13 @@ public class EditOrderFile {
 
     //Expanded the menu when the user is editing orders.
     void editOrder(int indexEdit) throws FileNotFoundException {
-        String[] menuitems = {"1. for at tilføje flere pizzaer til ordren ", "2. for at slette enkelte pizzaer fra ordren",
-                "3. for at ændre tiden for en ordren", "4. for at retunerer til hovedmenu."};
+        String[] menuitems = {"1. Indtast flere pizzaer til ordren ", "2. Slet enkelte pizzaer fra ordren",
+                "3. Rediger tiden til ordren", "4. Retunerer til hovedmenu."};
         Menu menu = new Menu("Rediger order:","1,2 eller 3:", menuitems);
         System.out.println("Du har valgt: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
         menu.printMenu();
 
-        int input = UserInput.inputInt("Vælg hvad du vil med ordren:");
+        int input = UserInput.inputInt("Indtast hvad du vil med ordren:");
             switch (input) {
                 case 1:
                     addPizzaToOrder(mariosActiveOrders.getActiveOrders().get(indexEdit));

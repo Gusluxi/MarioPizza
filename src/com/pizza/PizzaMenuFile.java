@@ -13,7 +13,7 @@ public class PizzaMenuFile {
         public static String findPizzaInMenu() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
-            int inputPizzaInt = UserInput.inputInt(1, 34, "Skriv nr. på en pizza!");
+            int inputPizzaInt = UserInput.inputInt(1, 34, "Indtast nr. på en pizza!");
             String inputPizzaString = Integer.toString(inputPizzaInt);
             inputPizzaString += ".";
 
