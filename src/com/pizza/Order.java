@@ -1,12 +1,14 @@
 package com.pizza;
 
+import java.io.*;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 public class Order implements Comparable<Order> {
-
+    static File PitzHistoric2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
     static LocalTime localTime = LocalTime.now();
 
     private String time;
@@ -140,4 +142,30 @@ public class Order implements Comparable<Order> {
     void sortByAttribute() {
         Collections.sort(order);
     }
+
+    void sortFileAlphabetically() throws IOException {
+
+        FileReader fr = new FileReader(PitzHistoric2);
+        BufferedReader bufferedReader = new BufferedReader(fr);
+        String inputLine;
+        List<String> lineList = new ArrayList<>();
+        while ((inputLine = bufferedReader.readLine()) != null) {
+            lineList.add(inputLine);
+        }
+        fr.close();
+        System.out.println(lineList +"test");
+        Collections.sort(lineList);
+        System.out.println(lineList + "test2");
+
+
+        FileWriter fileWriter = new FileWriter(PitzHistoric2);
+        PrintWriter out = new PrintWriter(fileWriter);
+        for (String outputLine : lineList) {
+            out.println(outputLine);
+        }
+        out.flush();
+        out.close();
+        fileWriter.close();
+    }
+
 }

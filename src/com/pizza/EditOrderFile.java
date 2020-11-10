@@ -1,9 +1,9 @@
 package com.pizza;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //File, FileNotFoundException, IOException, FileWriter,
 
@@ -160,7 +160,9 @@ public class EditOrderFile {
         fw.write(order.toString());
         fw.write("\n");
         fw.close();
+
         sendToStats(order);
+
     }
 
     public static void sendToStats(Order order) throws IOException {
@@ -169,5 +171,9 @@ public class EditOrderFile {
         fw.write("\n");
         fw.close();
 
+        order.sortFileAlphabetically();
+
     }
+
+
  }
