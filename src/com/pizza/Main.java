@@ -26,10 +26,10 @@ public class Main {
         Miscellaneous testMisc = new Miscellaneous();
         TimeClass timeClass = new TimeClass();
 
-        String nr1 = "#01. Vesuvio: tomatsauce, ost, skinke og oregano .............................. 57 DKK";
-        String nr4 = "#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano.. 63 DKK";
-        String nr8 = "#08. Victoria: tomatsauce, ost, skinke, ananas, champignon, løg og oregano..... 61 DKK";
-        String nr12 = "#12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano.................... 61 DKK";
+        String nr1 = "#01. Vesuvio: tomatsauce, ost, skinke og oregano ................................. 57 kr.";
+        String nr4 = "#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano..... 63 kr.";
+        String nr8 = "#08. Victoria: tomatsauce, ost, skinke, ananas, champignon, løg og oregano........ 61 kr.";
+        String nr12 = "#12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano....................... 61 kr.";
 
         ArrayList<String> list1 = new ArrayList();
         list1.add(nr1);list1.add(nr4);
@@ -76,7 +76,6 @@ public class Main {
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
                     int index = (UserInput.inputInt("Skriv #index af order der skal gemmes:") -1); //giver den første, når han skriver 1. (istedet for 0)
                     if (index == -1)
-                        break;
                     System.out.print("GEMMER ORDER: #" + index+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(index);
                     confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
@@ -89,7 +88,6 @@ public class Main {
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
                     int indexDel = (UserInput.inputInt("Skriv #index af order der skal slettes:") - 1);
                     if (indexDel == -1)
-                        break;
                     System.out.print("SLETTER ORDER: #" + indexDel+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
                     mariosActiveOrders.removeOrderFromList(indexDel);
