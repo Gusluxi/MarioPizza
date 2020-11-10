@@ -20,21 +20,8 @@ public class UserInput {
         return minute;
     }
 
-    //Overloaded inputInt()
-    //InputInt validering om det er hel-tal
-    public static int inputInt() {
-        int number;
 
-        while (!scan.hasNextInt()) {
-            System.out.println("Du skal skrive et hel-tal!");
-            System.out.println("Indtast nummer: ");
-            scan.nextLine();
-        }
-        number = scan.nextInt();
-        return number;
-    }
-
-    //Validering om det er heltal samt et minimum og maximum tal.
+    //Checks if the input is an integer and if it is within the chosen min/max value
     public static int inputInt(int min, int max, String msg) {
         int number;
         System.out.println(msg);
@@ -52,7 +39,7 @@ public class UserInput {
 
         return number;
     }
-
+    //Asks user to input an integer if they didn't
     public static int inputInt(String msgOutput) {
         int number;
         System.out.println(msgOutput);
@@ -106,7 +93,7 @@ public class UserInput {
                 } catch (NumberFormatException e) { }
             }
 
-            //Error msg
+            //Error message
             if ((hourInt < 0 || hourInt > 23) && (minuteInt < 0 || minuteInt > 59))
                 System.out.println("Fejl, \"" + time + "\" er ikke et tidspunkt.\n" + msgOutput);
             else {
@@ -121,15 +108,5 @@ public class UserInput {
         setMinute(minuteInt);
     }
 
-    public static String inputString() {
-        String word;
-        while(!scan.hasNextLine()){
-            System.out.println("Du skal skrive en String!");
-            System.out.println("Skriv string: ");
-            scan.next();
-        }
-        word = scan.next();
-        return word;
-    }
 
 }
