@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static com.pizza.EditOrderFile.*;
 import static com.pizza.PizzaMenuFile.*;
-
+import static com.pizza.Statistic.*;
 public class Main {
 
     static Scanner menuList;
@@ -32,7 +32,7 @@ public class Main {
         String nr12 = "#12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano....................... 61 kr.";
 
         ArrayList<String> list1 = new ArrayList();
-        list1.add(nr1);list1.add(nr4);
+        list1.add(nr1);list1.add(nr4);list1.add(nr1);
 
         ArrayList<String> list2 = new ArrayList();
         list2.add(nr1);list2.add(nr4);list2.add(nr8);list2.add(nr12);
@@ -46,6 +46,11 @@ public class Main {
         mariosActiveOrders.addOrderToActiveOrders(order2);
         mariosActiveOrders.addOrderToActiveOrders(order3);
         mariosActiveOrders.addOrderToActiveOrders(order4);
+
+        Statistic stats = new Statistic();
+
+
+
 
         mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
 
@@ -100,6 +105,9 @@ public class Main {
                     break;
                 case 6:
                     PizzaMenuFile.printPizzaMenu2();
+                    break;
+                case 7:
+                    stats.readFileTest();
                     break;
                 case 9:
                     System.out.println("Afslutter program...");

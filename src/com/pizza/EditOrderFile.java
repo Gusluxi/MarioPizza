@@ -67,7 +67,7 @@ public class EditOrderFile {
     void addPizzaToOrder(Order order) throws FileNotFoundException {
         boolean start = true;
         while (start) {
-            order.addPizzaToOrder(PizzaMenuFile.findAndReturnPizza());
+            order.addPizzaToOrder(PizzaMenuFile.findPizzaInMenu());
             order.displayCurrentOrder("Nye ordrer:");
 
             //Find ud af, om der skal bestilles flere pizzaer:
@@ -88,7 +88,7 @@ public class EditOrderFile {
             order.displayCurrentOrder("Hele Ordren:");
             while (input == 1) {
                 System.out.println(mariosActiveOrders.getActiveOrders().get(indexEdit).findPizzaNumber());
-                mariosActiveOrders.getActiveOrders().get(indexEdit).removePizzaFromOrder(PizzaMenuFile.findAndDeleteFromOrder());
+                mariosActiveOrders.getActiveOrders().get(indexEdit).removePizzaFromOrder(PizzaMenuFile.findPizzaInMenu());
                 order.displayCurrentOrder("Hele Ordren:");
 
                 if (order.getOrder().size() == 1 || order.getOrder().size() == 0) {
@@ -146,7 +146,9 @@ public class EditOrderFile {
                 case 3:
                     editOrderTime(indexEdit);
                     break;
-
+                case 4:
+                    //Ud til hovedmenu
+                    break;
                 default:
         }
     }

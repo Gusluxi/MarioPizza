@@ -10,11 +10,9 @@ public class UserInput {
     public void setHour(int hour) {
         this.hour = hour;
     }
-
     public void setMinute(int minute) {
         this.minute = minute;
     }
-
     public int getHour() {
         return hour;
     }

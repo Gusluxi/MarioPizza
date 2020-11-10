@@ -45,10 +45,3 @@ public class Miscellaneous {
 
 }
 
-/*
-    //Kalder bare på ovenstående metode og returnerer tallet. (OVERFLØDIG, MEN SER FINERE UD SYNES VI)
-    int newOrderID() throws FileNotFoundException {
-        int ID = generateOrderID();
-        return ID;
-    }
- */

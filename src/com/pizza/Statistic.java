@@ -1,37 +1,28 @@
 package com.pizza;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Statistic {
-    private final String FILENAMEPH = "src\\com\\pizza\\PitzHistoric.txt";
-    private int currentPizza;
+    private final String FILENAME = "src\\com\\pizza\\PitzHistoric.txt";
+
+    void readFileTest() throws FileNotFoundException {
+        Scanner scanFile = new Scanner(new File(FILENAME));
+        int var=0;
+        System.out.println("TEST");
+            while (scanFile.hasNext()) {
+                String nextWord = scanFile.next();
+                if (nextWord.contains("01,")) {
+                    System.out.println("Fundet!");
+                    var++;
 
 
-    public int getCurrentPizza() {
-        return currentPizza;
-    }
-    public void setCurrentPizza(int currentPizza) {
-        this.currentPizza = currentPizza;
-    }
+                }
+            }
 
-    int readOrderID ( int piznr){
-        int counter = 0;
-        try {
-            Scanner pitzFileScan = new Scanner(new File(FILENAMEPH));
-            do {
-                String stringPitz = pitzFileScan.nextLine();
-                if (stringPitz.contains(piznr + ","))
-                    counter++;
-                setCurrentPizza(counter);
-                int intPitz = Integer.parseInt(stringID);
-                setCurrentOrderID(intID);
-                return intID;
-            } while (pitzFileScan.hasNextLine());
-        } catch (IOException e) {
-            System.out.println("\nCould not open file - I/O Exception" + e);
-        }
-        return -1;
+        System.out.println(var);
     }
 }
+
