@@ -21,16 +21,16 @@ public class TestSimulationCode {
         String nr33 = "#33. Chorinzo: tomatsauce, ost, chorinzo, rucola, pestodressing................... 63 kr.";
 
         ArrayList<String> list1 = new ArrayList();
-        list1.add(nr33);list1.add(nr4);list1.add(nr1);
+        list1.add(nr1);list1.add(nr4);list1.add(nr33);
 
         ArrayList<String> list2 = new ArrayList();
-        list2.add(nr4);list2.add(nr7);list2.add(nr7);list2.add(nr8);list2.add(nr12);list2.add(nr7);
+        list2.add(nr4);list2.add(nr7);list2.add(nr7);list2.add(nr7);list2.add(nr8);list2.add(nr12);
 
         ArrayList<String> list3 = new ArrayList();
         list3.add(nr1);list3.add(nr33);
 
         ArrayList<String> list4 = new ArrayList();
-        list4.add(nr33);list4.add(nr4);list4.add(nr8);list4.add(nr12);list4.add(nr24);
+        list4.add(nr4);list4.add(nr8);list4.add(nr12);list4.add(nr24);list4.add(nr33);
 
         Order order1 = new Order(list1,miscellaneous.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
         Order order2 = new Order(list2,miscellaneous.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
