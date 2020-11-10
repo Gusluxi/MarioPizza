@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Order implements Comparable<Order> {
@@ -145,14 +146,15 @@ public class Order implements Comparable<Order> {
 
     void sortFileAlphabetically() throws IOException {
 
-        FileReader fr = new FileReader(PitzHistoric2);
-        BufferedReader bufferedReader = new BufferedReader(fr);
+        Scanner pitzhist2 = new Scanner(PitzHistoric2);
+
         String inputLine;
         List<String> lineList = new ArrayList<>();
-        while ((inputLine = bufferedReader.readLine()) != null) {
+        while (pitzhist2.hasNext()) {
+            inputLine = pitzhist2.next();
             lineList.add(inputLine);
         }
-        fr.close();
+
         System.out.println(lineList +"test");
         Collections.sort(lineList);
         System.out.println(lineList + "test2");
@@ -167,5 +169,7 @@ public class Order implements Comparable<Order> {
         out.close();
         fileWriter.close();
     }
+
+
 
 }

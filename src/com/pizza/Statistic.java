@@ -2,9 +2,7 @@ package com.pizza;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Statistic {
     private final String FILENAME = "src\\com\\pizza\\PitzHistoric2.txt";
@@ -12,6 +10,7 @@ public class Statistic {
 
     void readStats() throws FileNotFoundException {
         HashMap<String, Integer> map = new HashMap<String, Integer>();
+
 
         Scanner scanFile = new Scanner(new File(FILENAME));
         while (scanFile.hasNext()) {
@@ -25,10 +24,13 @@ public class Statistic {
         }
         System.out.println(map);
 
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry);
         }
     }
+
+
 
 
 }
