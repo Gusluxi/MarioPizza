@@ -10,19 +10,15 @@ public class Miscellaneous {
     private final String FILENAME = "src\\com\\pizza\\OrderID.txt";
     private int currentOrderID;
 
-    public int getCurrentOrderID() {
-        return currentOrderID;
-    }
-
     public void setCurrentOrderID(int currentOrderID) {
         this.currentOrderID = currentOrderID;
     }
 
-    //Denne metode læser en fil og returner tallet i filen.
+    //This method reads the ORDERID-file and returns the number
     int readOrderID() {
         try {
-            Scanner iDFileScan = new Scanner(new File(FILENAME));
-            String stringID = iDFileScan.nextLine();
+            Scanner idFileScan = new Scanner(new File(FILENAME));
+            String stringID = idFileScan.nextLine();
             int intID = Integer.parseInt(stringID);
             setCurrentOrderID(intID);
             return intID;
@@ -33,7 +29,7 @@ public class Miscellaneous {
         return -1;
     }
 
-    //Denne metode henter et integer fra ovenstående metode, plusser med 1, og setter IDet til ordren + noterer det i filen
+    //Gets the OrderID from the method above and adds 1. (Also saves the newest OrderID in the file.)
     int newOrderID() throws FileNotFoundException {
         int countID = readOrderID();
         countID ++;

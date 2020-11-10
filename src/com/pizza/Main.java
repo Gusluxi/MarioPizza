@@ -2,12 +2,11 @@ package com.pizza;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static com.pizza.EditOrderFile.*;
 import static com.pizza.PizzaMenuFile.*;
-import static com.pizza.Statistic.*;
+
 public class Main {
 
     static Scanner menuList;
@@ -21,34 +20,15 @@ public class Main {
 
 
     void run() throws IOException { // MENU
-        //Indsætter instanser af klasser og opretter ordrer, så det er sjovere at teste.
-        EditOrderFile testEO = new EditOrderFile();
-        Miscellaneous testMisc = new Miscellaneous();
+        //Variables and instances of classes
+        EditOrderFile editOrderFile = new EditOrderFile();
         TimeClass timeClass = new TimeClass();
         Statistic stats = new Statistic();
 
-        String nr1 = "#01. Vesuvio: tomatsauce, ost, skinke og oregano ................................. 57 kr.";
-        String nr4 = "#04. Carbona: tomatsauce, ost, kødsauce, spaghetti, cocktailpølser og oregano..... 63 kr.";
-        String nr8 = "#08. Victoria: tomatsauce, ost, skinke, ananas, champignon, løg og oregano........ 61 kr.";
-        String nr12 = "#12. Le Blissola: tomatsauce, ost, skinke, rejer og oregano....................... 61 kr.";
+        TestSimulationCode testSimulationCode = new TestSimulationCode();
+        testSimulationCode.insertTestSimulatedCode(); //Insert fake orders to show off
 
-        ArrayList<String> list1 = new ArrayList();
-        list1.add(nr1);list1.add(nr4);list1.add(nr1);
-
-        ArrayList<String> list2 = new ArrayList();
-        list2.add(nr1);list2.add(nr4);list2.add(nr8);list2.add(nr12);
-
-        Order order1 = new Order(list1,testMisc.newOrderID(),timeClass.setTimeOfTheDay(11,45),1145);
-        Order order4 = new Order(list2,testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,45),945);
-        Order order2 = new Order(list1,testMisc.newOrderID(),timeClass.setTimeOfTheDay(9,30),930);
-        Order order3 = new Order(list1,testMisc.newOrderID(),timeClass.setTimeOfTheDay(12,15),1215);
-
-        mariosActiveOrders.addOrderToActiveOrders(order1);
-        mariosActiveOrders.addOrderToActiveOrders(order2);
-        mariosActiveOrders.addOrderToActiveOrders(order3);
-        mariosActiveOrders.addOrderToActiveOrders(order4);
-
-
+        //Run the menu here:
         mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
 
         boolean run = true;
@@ -56,7 +36,7 @@ public class Main {
         String headertext = "Mario's Pizza  -  kl. " + timeClass.displayTime();
         String leadtext = "Vælg en mulighed: ";
         String[] menuitems = {"1. Ny order.", "2. Vis aktive ordrer.", "3. Gem en betalt order.",
-                "4. Slet en order.","5. Rediger en order.","6. Vis Pizza Menukort", "9. Afslut program"};
+                "4. Slet en order.","5. Rediger en order.","6. Vis Pizza Menukort","7. Vis Statestik over solgte pizzaer.", "9. Afslut program"};
 
 
         while (run){
@@ -66,7 +46,7 @@ public class Main {
             switch (choice){
                 case 1:
                     System.out.println("1. Add new order.");
-                    testEO.startNewOrder();
+                    editOrderFile.startNewOrder();
                     break;
                 case 2:
                     System.out.println("2. Viser alle aktive ordrer.\n");
@@ -98,7 +78,7 @@ public class Main {
                 case 5:
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
                     int indexEdit = (UserInput.inputInt("Input index number of order to edit: ") -1);
-                    testEO.editOrder(indexEdit);
+                    editOrderFile.editOrder(indexEdit);
                     break;
                 case 6:
                     PizzaMenuFile.printPizzaMenu2();

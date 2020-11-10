@@ -1,5 +1,7 @@
 package com.pizza;
 
+//Just the menu class :)
+
 public class Menu {
     private String menuHeader;
     private String leadText;

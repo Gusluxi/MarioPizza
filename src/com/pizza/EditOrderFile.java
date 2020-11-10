@@ -1,25 +1,20 @@
 package com.pizza;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 //File, FileNotFoundException, IOException, FileWriter,
 
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
-    static File PitzHistoric = new File("src\\com\\pizza\\PitzHistoric.txt");
-    static File PitzHistoric2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
-    static Miscellaneous testMisc = new Miscellaneous();
+    static File soldPizzas = new File("src\\com\\pizza\\PitzHistoric.txt");
+    static File soldPizzas2 = new File("src\\com\\pizza\\PitzHistoric2.txt");
+    static Miscellaneous miscellaneous = new Miscellaneous();
     static TimeClass timeClass = new TimeClass();
-    static Order order = new Order();
-    // static Scanner scan = new Scanner(System.in);
 
-    //Vi starter en ny ordre ved at oprette et order-objekt.
-    //Vi beder om input omkring ordren og assigner attributer til dem til sidst.
 
+
+   //Creates an order-instance and calls other methods to assign values
     void startNewOrder() throws FileNotFoundException {
         boolean runMenu = true;
         Order order = new Order();
@@ -37,7 +32,7 @@ public class EditOrderFile {
                     order.displayCurrentOrder("\nHele ordren:");
 
                     //GENERATE ORDER ID
-                    order.setOrderID(testMisc.newOrderID());
+                    order.setOrderID(miscellaneous.newOrderID());
 
                     //SET TIME FOR PICKUP
                     timeClass.askForTime(order);
@@ -64,14 +59,14 @@ public class EditOrderFile {
         }
     }
 
-    //editOrder() - Takes the order object and adds an
+    //Starts a whileloop to determine how many pizzas you want to assign to your order.
     void addPizzaToOrder(Order order) throws FileNotFoundException {
         boolean start = true;
         while (start) {
             order.addPizzaToOrder(PizzaMenuFile.findPizzaInMenu());
             order.displayCurrentOrder("Nye ordrer:");
 
-            //Find ud af, om der skal bestilles flere pizzaer:
+            //Press 1 for more pizzas, 2 to save order.
             int input = UserInput.inputInt(1, 2, "\n1. for at tilføje flere pizzaer " +
                     "\n2. for at gemme ordren");
             if (input == 2) {
@@ -79,7 +74,8 @@ public class EditOrderFile {
             }
         }
     }
-    //editOrder() - Takes the selected order and removes a selected pizza in a while loop.
+
+    //Takes the selected order and removes a selected pizza in a while loop.
     //If there is only one pizza left in the order it will ask to either delete the entire order or save it and finish the loop.
     void removePizzaFromOrderEO(Order order, int indexEdit) throws FileNotFoundException {
         int input = 1;
@@ -105,7 +101,7 @@ public class EditOrderFile {
             }
         }
     }
-    //editOrder() - Takes the selected order and asks for a time change.
+    //Uses index as a parameter and asks the user to specify the time.
     void editOrderTime(int indexEdit) {
         TimeClass timeClass = new TimeClass();
 
@@ -115,25 +111,27 @@ public class EditOrderFile {
         while (start) {
 
             int inputChangePickUpTime = UserInput.inputInt(1, 2, "1. Ændre pickup-tidspunkt " +
-                    "\n2. Behold nuværende pickup-tidspunkt (" + mariosActiveOrders.getActiveOrders().get(indexEdit).getTime() + ")");
+                    "\n2. Behold nuværende pickup-tidspunkt (" +
+                    mariosActiveOrders.getActiveOrders().get(indexEdit).getTime() + ")");
 
             if (inputChangePickUpTime == 1) {
                 timeClass.askForTime(mariosActiveOrders.getActiveOrders().get(indexEdit));
-            }
-            if (inputChangePickUpTime == 2) {
+            } else {
                 System.out.println("Ordren ser nu således ud: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
-
             }
             start = false;
         }
     }
-    //Uses 1. addPizzaToOrder(Order) - 2. removePizzaFromOrderEO(Order, int) - 3. editOrderTime(int).
+
+
+    //Expanded the menu when the user is editing orders.
     void editOrder(int indexEdit) throws FileNotFoundException {
         String[] menuitems = {"1. for at tilføje flere pizzaer til ordren ", "2. for at slette enkelte pizzaer fra ordren",
                 "3. for at ændre tiden for en ordren", "4. for at retunerer til hovedmenu."};
         Menu menu = new Menu("Rediger order:","1,2 eller 3:", menuitems);
         System.out.println("Du har valgt: " + mariosActiveOrders.getActiveOrders().get(indexEdit));
         menu.printMenu();
+
         int input = UserInput.inputInt("Vælg hvad du vil med ordren:");
             switch (input) {
                 case 1:
@@ -154,9 +152,9 @@ public class EditOrderFile {
         }
     }
 
-    //Vi skriver en Order ind i en textfil, så vi gemmer solgte ordre.
+    //Saves a given order to a text-file.
     public static void confirmOrderSold(Order order) throws IOException {
-        FileWriter fw = new FileWriter(PitzHistoric,true);
+        FileWriter fw = new FileWriter(soldPizzas,true);
         fw.write(order.toString());
         fw.write("\n");
         fw.close();
@@ -165,8 +163,9 @@ public class EditOrderFile {
 
     }
 
+    //When an order is confirmed, the purchase is stored in another file for recordkeeping.
     public static void sendToStats(Order order) throws IOException {
-        FileWriter fw = new FileWriter(PitzHistoric2,true);
+        FileWriter fw = new FileWriter(soldPizzas2,true);
         fw.write(order.statsToString());
         fw.write("\n");
         fw.close();

@@ -24,7 +24,7 @@ public class Statistic {
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            System.out.println(entry);
+            System.out.println("Pizzanummer: "+entry.getKey() +", Antal solgte: "+ entry.getValue());
         }
     }
 }

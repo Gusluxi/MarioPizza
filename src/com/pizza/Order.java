@@ -81,7 +81,7 @@ public class Order implements Comparable<Order> {
     }
 
     
-    //Metode navnet siger det
+    //Displays orders in the menu
     void displayCurrentOrder(String msg) {
         sortByAttribute();
         System.out.println(msg);
@@ -90,7 +90,7 @@ public class Order implements Comparable<Order> {
         }
     }
 
-    //Denne metode afleverer Pizzanummeret istedet for hele navnet, som vi bruger i toString().
+    //Method used to make a cleaner toString, for displaying orders.
     public String findPizzaNumber() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
@@ -100,6 +100,7 @@ public class Order implements Comparable<Order> {
         return pizzaNumber;
     }
 
+    //Used solely in statistics, does the same as the method above.
     public String findPizzaNumber2() {
         String pizzaNumber = "";
         for (int i = 0; i < order.size(); i++) {
@@ -109,7 +110,7 @@ public class Order implements Comparable<Order> {
         return pizzaNumber;
     }
 
-
+    //toString...
     @Override
     public String toString() {
         String pizzaNumber = findPizzaNumber();
@@ -117,21 +118,22 @@ public class Order implements Comparable<Order> {
         //return "Order{" + "Pizzas: ( " + pizzaNumber + "), orderID: #" + orderID + ", time: " + time + '}'; //tilføj evt. " timeInt + "<--- " foran Order for at se tids-atribut
     }
 
+    //toString for statistics.
     public String statsToString() {
         String pizzaNumber2 = findPizzaNumber2();
         return pizzaNumber2 ;
         }
 
 
-    @Override //vigtig metode til at sortere vores Ordrer efter tids-elementet i dem. Bruges i sortByAttribute()
-    //Hvis rækkefølgen skal ændres, så byt om på this.timeInt og compare
-
+       //Changes how Collections.sort works on our Order-objects.
+       //It now sorts by a "semi-hidden" attribute called timeInt
+    @Override
     public int compareTo(Order order) {
         int compare = order.getTimeInt();
         return this.timeInt - compare;
     }
 
-    //Konverterer tids-attributen til en int, og assigner den til ordren. Så kan vi nemmere sortere.
+    //Converts our time-attribute to an Integer as assigns the value to our order.
     public int convertTimetoTimeInt(Order order) {
         String time = order.getTime();
         String timeFixed = time.substring(0, 2) + time.substring(3, 5);
@@ -139,26 +141,24 @@ public class Order implements Comparable<Order> {
         return timeInt;
     }
 
-    //Den sorterer :)
+    //Sorts the order, uses Comparable, (see compareTo method)
     void sortByAttribute() {
         Collections.sort(order);
     }
 
+    //Used to sort information stored in our file for completed purchases.
     void sortFileAlphabetically() throws IOException {
 
-        Scanner pitzhist2 = new Scanner(PitzHistoric2);
+        Scanner readFile = new Scanner(PitzHistoric2);
 
         String inputLine;
         List<String> lineList = new ArrayList<>();
-        while (pitzhist2.hasNext()) {
-            inputLine = pitzhist2.next();
+        while (readFile.hasNext()) {
+            inputLine = readFile.next();
             lineList.add(inputLine);
         }
 
-        System.out.println(lineList +"test");
         Collections.sort(lineList);
-        System.out.println(lineList + "test2");
-
 
         FileWriter fileWriter = new FileWriter(PitzHistoric2);
         PrintWriter out = new PrintWriter(fileWriter);

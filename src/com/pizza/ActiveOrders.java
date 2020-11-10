@@ -16,11 +16,6 @@ public class ActiveOrders {
         return activeOrders;
     }
 
-    public void setActiveOrders(ArrayList<Order> activeOrders) {
-        this.activeOrders = activeOrders;
-    }
-    //
-
     void removeOrderFromList(int index) {
         activeOrders.remove(index);
     }
@@ -31,10 +26,9 @@ public class ActiveOrders {
     public void addOrderToActiveOrders(Order order) {
         this.activeOrders.add(order);
     }
-    //addOrderToActivateOrders adder 1 string i stedet for en ArrayList af strings.
 
 
-    //Denne metode viser index-tallet på ordren i aktive-order-listen. (Bruges i fx i Delete-menuen)
+    //Shows the indexnumber of active numbers in displayed menus.
     void indexDisplayActiveOrders(String msgToUser){
         System.out.println(msgToUser);
         sortByAttribute();
@@ -44,22 +38,12 @@ public class ActiveOrders {
 
         }
     }
-    //Sorterer ordrer efter attribut (givet i Order class)
-    //Skulle den sortere efter andre attributer, skulle vi bruge en Comparator istedet for
+
+    //Used to sort orders by attribute. (Comparator used in case we need to sort by more than one thing
     void sortByAttribute(){
         Collections.sort(activeOrders);
     }
 
 }
 
-/*
- void displayActiveOrders(String msg) {
-        System.out.println(msg);
-        sortByAttribute();
-        for (int i = 0; i < activeOrders.size(); i++) {
-            System.out.println(activeOrders.get(i));
-        }
-
-    }
- */
 
