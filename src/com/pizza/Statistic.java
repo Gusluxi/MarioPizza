@@ -5,9 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Statistic {
+    //Second file for working with the statistics
     private final String FILENAME = "src\\com\\pizza\\PitzHistoric2.txt";
 
-
+    //TreeMap that sorts the statistics file.
     void readStats() throws FileNotFoundException {
         TreeMap<String, Integer> map = new TreeMap<>();
 
@@ -22,7 +23,7 @@ public class Statistic {
                 map.put(word, 1);
             }
         }
-
+        //Outputs the map line by line.
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry);
         }
