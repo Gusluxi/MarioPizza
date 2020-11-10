@@ -44,19 +44,20 @@ public class Main {
             menu.printMenu();
             choice = UserInput.inputInt(leadtext);
             switch (choice){
-                case 1:
+                case 1: //Creates new order
                     System.out.println("1. Add new order.");
                     editOrderFile.startNewOrder();
                     break;
-                case 2:
+                case 2: //Displays orders
                     System.out.println("2. Viser alle aktive ordrer.\n");
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
-                    //mariosActiveOrders.displayActiveOrders("2. Active orders: "); Hvis vi vil se "hemmelig" tids-atribut (timeInt), som kan printes i toString under Order-class
                     break;
-                case 3:
+                case 3: //Saves an order in a file for record-keeping.
                     System.out.println("3. Gem en betalt order.\n");
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
-                    int index = (UserInput.inputInt("Skriv #index af order der skal gemmes:") -1); //giver den første, når han skriver 1. (istedet for 0)
+
+                    // "-1" makes sure the index numbers aren't 0.
+                    int index = (UserInput.inputInt("Skriv #index af order der skal gemmes:") -1);
                     if (index == -1)
                     System.out.print("GEMMER ORDER: #" + index+1 + " ");
                     mariosActiveOrders.printSelectedOrderFromList(index);
@@ -64,29 +65,31 @@ public class Main {
                     mariosActiveOrders.removeOrderFromList(index);
                     mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
                     break;
-                case 4:
+                case 4: //Deletes an order, in case customer doesn't show up.
                     System.out.println("4. Slet en order.\n");
-
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
-                    int indexDel = (UserInput.inputInt("Skriv #index af order der skal slettes:") - 1);
-                    if (indexDel == -1)
-                    System.out.print("SLETTER ORDER: #" + indexDel+1 + " ");
-                    mariosActiveOrders.printSelectedOrderFromList(indexDel); //Kan laves om til en "Are you sure you want to delete" + *ORDER* + " from the list" Type y or n.
-                    mariosActiveOrders.removeOrderFromList(indexDel);
-                    mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
+
+                    // "-1" makes sure the index numbers aren't 0.
+                    int indexDel = (UserInput.inputInt(0,100,"Skriv #index af order der skal slettes:") - 1);
+                    if (indexDel >0) {
+                      System.out.print("SLETTER ORDER: #" + indexDel+1 + " ");
+                      mariosActiveOrders.printSelectedOrderFromList(indexDel);
+                      mariosActiveOrders.removeOrderFromList(indexDel);
+                      mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
+                    }
                     break;
-                case 5:
+                case 5: //Lets the user edit an existing file.
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER:");
                     int indexEdit = (UserInput.inputInt("Input index number of order to edit: ") -1);
                     editOrderFile.editOrder(indexEdit);
                     break;
-                case 6:
+                case 6: //Prints the Menu
                     PizzaMenuFile.printPizzaMenu2();
                     break;
-                case 7:
+                case 7: //Prints the statistics of former purchases.
                     stats.readStats();
                     break;
-                case 9:
+                case 9: //Terminates program (if needed).
                     System.out.println("Afslutter program...");
                     run = false;
                     break;
