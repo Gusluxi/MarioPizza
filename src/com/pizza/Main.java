@@ -93,7 +93,9 @@ public class Main {
                     break;
                 case 9: //Terminates program (if needed).
                     System.out.println("Afslutter program...");
-                    run = false;
+                    int confirmEnd = UserInput.inputInt(1,2,"Er du sikker på at afslutte programmet?\n(Alle aktive ordrer vil blive slettet)\n1. for Ja, 2. for Nej: ");
+                    if (confirmEnd == 1)
+                        run = false;
                     break;
                 default:
                     menu.printMenu();
