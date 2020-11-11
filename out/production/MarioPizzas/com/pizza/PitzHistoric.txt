@@ -61,3 +61,11 @@ Order: #1760 - Afhentning kl. 21:30 - Pizza nr. ( 01, 02, 03, 04, 05, 06, 07, 08
 Total: 2023 kr.
 Order: #1807 - Afhentning kl. 09:45 - Pizza nr. ( 04, 07, 07, 08, 12, 07, ) 
 Total: 368 kr.
+Order: #1859 - Afhentning kl. 09:30 - Pizza nr. ( 01, 33, ) 
+Total: 120 kr.
+Order: #1873 - Afhentning kl. 09:45 - Pizza nr. ( 04, 07, 07, 07, 08, 12, ) 
+Total: 368 kr.
+Order: #1904 - Afhentning kl. 09:30 - Pizza nr. ( 01, 33, ) 
+Total: 120 kr.
+Order: #1941 - Afhentning kl. 12:15 - Pizza nr. ( 04, 08, 12, 24, 33, ) 
+Total: 313 kr.

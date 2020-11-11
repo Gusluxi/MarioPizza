@@ -4,9 +4,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * (Javadoc exampel if we want it)
  * TimeClass main purpose is to return current time and a custom time set by the user
- * this class will be usefull for the user to veiw current time of all the orders and
+ * this class will be useful for the user to view current time of all the orders and
  * to help the user create a custom time.
  */
 public class TimeClass {
@@ -20,7 +19,6 @@ public class TimeClass {
         return currentRealTime;
     }
 
-    //Returner en STRING efter time-minut input
 
     /**
      * Uses the localTime utility Java provides of only hours and minutes.
@@ -35,11 +33,11 @@ public class TimeClass {
         return timeTest;
     }
 
-    //Vi beder USER om at indsætte en tids-attribut på en order.
+
 
     /**
      * This method asks the user to insert a time attribute for an order.
-     * The method uses input via UserInput class to assign valuse to hours and to
+     * The method uses input via UserInput class to assign values to hours and to
      * minutes as well as validating a set parameters and if it is an integer.
      * @param order     The object of the current ArrayList of order.
      */

@@ -9,7 +9,11 @@ public class PizzaMenuFile {
     static File menuTextFile2 = new File("src\\com\\pizza\\PizzaMenu2.txt");
 
 
-    //Finds the Chosen number from PizzaMenu.txt and sends a String with the chosen pizza.
+    /**
+     * Finds the Chosen number from PizzaMenu.txt and sends a String with the chosen pizza.
+     * @return the line from the text file.
+     * @throws FileNotFoundException .
+     */
         public static String findPizzaInMenu() throws FileNotFoundException {
             Scanner menuList = new Scanner(menuTextFile);
 
@@ -27,7 +31,10 @@ public class PizzaMenuFile {
         }
 
 
-        //Scans and prints PizzaMenu2.txt
+    /**
+     * Scans and prints PizzaMenu2.txt
+     * @throws FileNotFoundException .
+     */
     static void printPizzaMenu2() throws FileNotFoundException {
         Scanner menuList = new Scanner(menuTextFile2);
 

@@ -14,7 +14,7 @@ class UserInputTest {
     void testInputInt() {
         int number;
         int testUserInput = 12;
-        while (testUserInput != (int)testUserInput) {
+        while (testUserInput != testUserInput) {
             assertNotEquals("Random String", testUserInput);
             assertNotEquals(12.32, testUserInput);
         }
@@ -28,7 +28,7 @@ class UserInputTest {
         int number;
         int testUserInput = 12;
         do {
-            while (testUserInput != (int)testUserInput) {
+            while (testUserInput != testUserInput) {
                 assertNotEquals("Random String", testUserInput);
                 assertNotEquals(12.32, testUserInput);
             }
@@ -42,7 +42,7 @@ class UserInputTest {
     void inputString() {
         String string;
         String testUserInput = "I like cats";
-        while (testUserInput != (String)testUserInput) {
+        while (testUserInput != testUserInput) {
             assertNotEquals(12, testUserInput);
             assertNotEquals(12.32, testUserInput);
         }

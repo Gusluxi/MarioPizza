@@ -1,9 +1,16 @@
 package com.pizza;
 
-import java.io.*;
+//File, FileNotFoundException, FileWriter, File (Written to keep track in case of java.io.* happening)
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
-//File, FileNotFoundException, IOException, FileWriter,
-
+/**
+ * The Order Class deals with everything related to changing/creating/deleting orders.
+ * Calls upon other classes (such as TimeClass) to assign specific attributes
+ * Stores information in 3 separate text-files (PitzHistoric, -Nr & Price.)
+ */
 
 public class EditOrderFile {
     static ActiveOrders mariosActiveOrders = new ActiveOrders();
@@ -14,8 +21,10 @@ public class EditOrderFile {
     static TimeClass timeClass = new TimeClass();
 
 
-
-   //Creates an order-instance and calls other methods to assign values
+    /**
+     * Creates an order-instance and calls other methods to assign values
+     * @throws FileNotFoundException .
+     */
     void startNewOrder() throws FileNotFoundException {
         boolean runMenu = true;
         Order order = new Order();
@@ -60,7 +69,11 @@ public class EditOrderFile {
         }
     }
 
-    //Starts a whileloop to determine how many pizzas you want to assign to your order.
+    /**
+     * Starts a whileloop to determine how many pizzas you want to assign to your order.
+     * @param order any given order
+     * @throws FileNotFoundException .
+     */
     void addPizzaToOrder(Order order) throws FileNotFoundException {
         boolean start = true;
         while (start) {
@@ -76,8 +89,13 @@ public class EditOrderFile {
         }
     }
 
-    //Takes the selected order and removes a selected pizza in a while loop.
-    //If there is only one pizza left in the order it will ask to either delete the entire order or save it and finish the loop.
+    /**
+     * Takes the selected order and removes a selected pizza in a while loop.
+     * If there is only one pizza left in the order it will ask to either delete the entire order or save it and finish the loop.
+     * @param order any given order
+     * @param indexEdit our user input, indexEdit is called in Main
+     * @throws FileNotFoundException .
+     */
     void removePizzaFromOrderEO(Order order, int indexEdit) throws FileNotFoundException {
         int input = 1;
         if (order.getOrder().size() == 0)
@@ -102,7 +120,11 @@ public class EditOrderFile {
             }
         }
     }
-    //Uses index as a parameter and asks the user to specify the time.
+
+    /**
+     * Uses index as a parameter and asks the user to specify the time.
+     * @param indexEdit our user input, indexEdit is called in Main
+     */
     void editOrderTime(int indexEdit) {
         TimeClass timeClass = new TimeClass();
 
@@ -125,7 +147,11 @@ public class EditOrderFile {
     }
 
 
-    //Expanded the menu when the user is editing orders.
+    /**
+     * Expanded the menu when the user is editing orders.
+     * @param indexEdit our user input, indexEdit is called in Main
+     * @throws FileNotFoundException .
+     */
     void editOrder(int indexEdit) throws FileNotFoundException {
         String[] menuitems = {"1. Indtast flere pizzaer til ordren ", "2. Slet enkelte pizzaer fra ordren",
                 "3. Rediger tiden til ordren", "4. Retunerer til hovedmenu."};
@@ -146,14 +172,16 @@ public class EditOrderFile {
                 case 3:
                     editOrderTime(indexEdit);
                     break;
-                case 4:
-                    //Ud til hovedmenu
-                    break;
                 default:
+                    System.out.println("\n");
         }
     }
 
-    //Saves a given order to a text-file.
+    /**
+     * Saves a given order to a text-file.
+     * @param order Any given order
+     * @throws IOException .
+     */
     public static void confirmOrderSold(Order order) throws IOException {
         FileWriter fw = new FileWriter(soldPizzas,true);
         fw.write(order.toString());
@@ -166,7 +194,11 @@ public class EditOrderFile {
 
     }
 
-    //When an order is confirmed, the stats of pizzas sold is stored in another file for record keeping.
+    /**
+     * When an order is confirmed, the stats of pizzas sold is stored in another file for record keeping.
+     * @param order Any given order
+     * @throws IOException .
+     */
     public static void sendToStats(Order order) throws IOException {
         FileWriter fw = new FileWriter(soldPizzas2,true);
         fw.write(order.pizzaNumberToString());
@@ -175,7 +207,12 @@ public class EditOrderFile {
 
         order.sortFileAlphabetically();
     }
-    //When an order is confirmed, the total cost is stored in another file for record keepint.
+
+    /**
+     * When an order is confirmed, the total cost is stored in another file for record keepint.
+     * @param order any given order.
+     * @throws IOException  .
+     */
     public static void sendToStats2(Order order) throws IOException {
         FileWriter fw = new FileWriter(soldPizzas3,true);
         fw.write(order.priceStatsToString());
@@ -183,6 +220,4 @@ public class EditOrderFile {
         fw.close();
 
     }
-
-
  }

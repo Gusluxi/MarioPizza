@@ -8,10 +8,13 @@ public class Statistic {
     private final String FILENAME_NR = "src\\com\\pizza\\PitzHistoricNr.txt";
     private final String FILENAME_PRICE = "src\\com\\pizza\\PitzHistoricPrice.txt";
 
-
+    /**
+     * Method that uses Treemap to sort a map of keys and values.
+     * Reads a file with every sold pizza and counts each individual sale.
+     * @throws FileNotFoundException .
+     */
     void readStatsPizzaNumber() throws FileNotFoundException {
         TreeMap<String, Integer> map = new TreeMap<>();
-
 
         Scanner scanFile = new Scanner(new File(FILENAME_NR));
         while (scanFile.hasNext()) {
@@ -29,6 +32,11 @@ public class Statistic {
         }
     }
 
+    /**
+     * Reads a file with every price total of prior sales.
+     * Adds them up and prints the total.
+     * @throws FileNotFoundException .
+     */
     void readStatsTotalPrice() throws FileNotFoundException {
         int totalPriceInt = 0;
         Scanner scanFile = new Scanner(new File(FILENAME_PRICE));
@@ -36,7 +44,7 @@ public class Statistic {
             String singlePriceString = scanFile.next();
             totalPriceInt += Integer.parseInt(singlePriceString);
         }
-        System.out.printf("\nOmsaetning = %,d kr.\n", totalPriceInt);
+        System.out.printf("\nOmsætning = %,d kr.\n", totalPriceInt);
     }
 }
 

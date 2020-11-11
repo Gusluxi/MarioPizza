@@ -2,8 +2,12 @@ package com.pizza;
 
 import java.util.Scanner;
 
+/**
+ * The UserInput class' main purpose is to make sure the user inputs valid numbers/strings.
+ */
+
 public class UserInput {
-    static Scanner scan = new Scanner(System.in); //Til inputInt() metode (LAV OGSÅ inputString
+    static Scanner scan = new Scanner(System.in);
     private int hour;
     private int minute;
 
@@ -51,37 +55,50 @@ public class UserInput {
         number = scan.nextInt();
         return number;
     }
-    //Takes a String msg for user and setHour(hourInt) + setMinute(minuteInt). You get min and hour with getters.
+
+    /**
+     * Takes a String msg from the user and setHour(hourInt) + setMinute(minuteInt). You get min and hour with getters.
+     * Checks the input for certain input such as :.,
+     * @param msgOutput is a string from Admin
+     */
     public void inputTimeInt(String msgOutput)  {
         String time;
         int hourInt = -1;
         int minuteInt = -1;
         System.out.println("\n" + msgOutput);
         scan.nextLine();
+
         do {
             time = scan.nextLine();
+            final boolean timeContains = time.contains(":") || time.contains(".") || time.contains(",") || time.contains(" ");
 
-            if (time.length() == 5 && (time.contains(":") || time.contains(".") || time.contains(",") || time.contains(" "))) {
+            if (time.length() == 5 && timeContains) {
                 //5Time in 4 numbers and 1 sign, EX. 12:30
                 try {
                     hourInt = Integer.parseInt(time.substring(0, 2));
                     minuteInt = Integer.parseInt(time.substring(3, 5));
-                } catch (NumberFormatException e) { }
+                } catch (NumberFormatException e) {
+                    System.out.println(e + ". Input Error");
+                }
             }
 
             if (time.length() == 4){
-                if (time.contains(":") || time.contains(".") || time.contains(",") || time.contains(" ")) {
+                if (timeContains) {
                     //4Time in 3 numbers and 1 sign, EX. 9:30
                     try {
                         hourInt = Integer.parseInt(time.substring(0, 1));
                         minuteInt = Integer.parseInt(time.substring(2, 4));
-                    } catch (NumberFormatException e) { }
+                    } catch (NumberFormatException e) {
+                        System.out.println(e + ". Input Error");
+                    }
                 } else {
                     //4Time in 4 numbers, EX. 1030
                     try {
                         hourInt = Integer.parseInt(time.substring(0, 2));
                         minuteInt = Integer.parseInt(time.substring(2, 4));
-                    } catch (NumberFormatException e) { }
+                    } catch (NumberFormatException e) {
+                        System.out.println(e + ". Input Error");
+                    }
                 }
             }
 
@@ -90,7 +107,9 @@ public class UserInput {
                 try {
                     hourInt = Integer.parseInt(time.substring(0, 1));
                     minuteInt = Integer.parseInt(time.substring(1, 3));
-                } catch (NumberFormatException e) { }
+                } catch (NumberFormatException e) {
+                    System.out.println(e + ". Input Error");
+                }
             }
 
             //Error message

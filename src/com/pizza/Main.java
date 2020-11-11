@@ -1,22 +1,12 @@
 package com.pizza;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
-
 import static com.pizza.EditOrderFile.*;
-import static com.pizza.PizzaMenuFile.*;
 
+/**
+ * Calls on other methods and classes using the switch-case in run().
+ */
 public class Main {
-
-    static Scanner menuList;
-    static {
-        try {
-            menuList = new Scanner(menuTextFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     void run() throws IOException { // MENU
         //Variables and instances of classes
@@ -54,23 +44,24 @@ public class Main {
                     System.out.println("3. Gem en betalt order.\n");
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
 
-                    // "-1" makes sure the index numbers aren't 0.
+                    // "-1" makes sure the when "1" is pressed, he chooses index 0.
                     int index = (UserInput.inputInt(0,mariosActiveOrders.getActiveOrders().size(),"Indtast #index af order der skal gemmes:") -1);
-                    if (index == -1)
-                    System.out.print("GEMMER ORDER: #" + index+1 + " ");
-                    mariosActiveOrders.printSelectedOrderFromList(index);
-                    confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
-                    mariosActiveOrders.removeOrderFromList(index);
-                    mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
+                    if ( index>(-0.1) ) {
+                        System.out.print("GEMMER ORDER: #" + (index + 1) + " ");
+                        mariosActiveOrders.printSelectedOrderFromList(index);
+                        confirmOrderSold(mariosActiveOrders.getActiveOrders().get(index));
+                        mariosActiveOrders.removeOrderFromList(index);
+                        mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
+                    }
                     break;
                 case 4: //Deletes an order, in case customer doesn't show up.
                     System.out.println("4. Slet en order.\n");
                     mariosActiveOrders.indexDisplayActiveOrders("AKTIVE ORDRER: \n0.  For at annullerer");
 
                     // "-1" makes sure the index numbers aren't 0.
-                    int indexDel = (UserInput.inputInt(0,mariosActiveOrders.getActiveOrders().size(),"Indtast #index af order der skal slettes:") - 1);
-                    if (indexDel >0) {
-                      System.out.print("SLETTER ORDER: #" + indexDel+1 + " ");
+                    int indexDel = (UserInput.inputInt(0,mariosActiveOrders.getActiveOrders().size(),"Indtast #index af order der skal slettes:")-1);
+                    if (indexDel >(-0.1)) {
+                      System.out.print("SLETTER ORDER: #" + (indexDel + 1) + " ");
                       mariosActiveOrders.printSelectedOrderFromList(indexDel);
                       mariosActiveOrders.removeOrderFromList(indexDel);
                       mariosActiveOrders.indexDisplayActiveOrders("Resterende aktive ordrer:");
